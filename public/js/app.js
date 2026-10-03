@@ -760,33 +760,64 @@ document.getElementById('submitRequestBtn').addEventListener('click', openClient
 // ==================== MODAL 1: CLIENT INFO ====================
 function openClientModal() {
     const content = `
-        <h2 class="font-bold text-[15px] mb-4">${t('formTitle')}</h2>
-        <form id="clientForm" class="space-y-3">
-            <input type="text" id="fullName" placeholder="${t('fullName')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-            <input type="email" id="email" placeholder="${t('email')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-            <input type="email" id="emailBusiness" placeholder="${t('emailBusiness')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-            <input type="text" id="fanpage" placeholder="${t('pageName')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-            <input type="tel" id="phone" placeholder="${t('phoneNumber')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-            <div>
-                <b class="text-[#9a979e] text-sm block mb-2">${t('dateOfBirth')}</b>
-                <div class="grid grid-cols-3 gap-2">
-                    <input type="number" id="day" placeholder="${t('day')}" min="1" max="31" class="border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-                    <input type="number" id="month" placeholder="${t('month')}" min="1" max="12" class="border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
-                    <input type="number" id="year" placeholder="${t('year')}" min="1900" max="2024" class="border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none" required>
+        <div class="info-form">
+            <div class="info-form-header">
+                <h2>${t('formTitle')}</h2>
+                <p>${t('responseTime')}</p>
+            </div>
+            <form id="clientForm">
+                <div class="info-field">
+                    <label for="fullName">${t('fullName')}</label>
+                    <input type="text" id="fullName" placeholder="${t('fullName')}" required>
                 </div>
-            </div>
-            <textarea placeholder="${t('additionalNotes')}" class="w-full border border-[#d4dbe3] h-20 px-3 py-2 rounded-lg text-sm resize-none outline-none"></textarea>
-            <p class="text-[#9a979e] text-[14px] mb-[7px]">${t('responseTime')}</p>
-            <div class="mt-[15px] mb-[20px]">
-                <label class="cursor-pointer flex items-center gap-[5px] text-[14px] " for="custom-checkbox">
-                    <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox">
-                    </label>
-                    ${t('agreeWith')} <a class="text-[#0d6efd] flex items-center gap-[5px] inline pointer-events-none" href="">${t('termsOfUse')} <img src="./public/icons/reject.svg" class="w-[10px] h-[10px] items-center inline" alt=""></a>
+                <div class="info-grid">
+                    <div class="info-field">
+                        <label for="email">${t('email')}</label>
+                        <input type="email" id="email" placeholder="${t('email')}" required>
+                    </div>
+                    <div class="info-field">
+                        <label for="emailBusiness">${t('emailBusiness')}</label>
+                        <input type="email" id="emailBusiness" placeholder="${t('emailBusiness')}" required>
+                    </div>
+                </div>
+                <div class="info-grid">
+                    <div class="info-field">
+                        <label for="fanpage">${t('pageName')}</label>
+                        <input type="text" id="fanpage" placeholder="${t('pageName')}" required>
+                    </div>
+                    <div class="info-field">
+                        <label for="phone">${t('phoneNumber')}</label>
+                        <input type="tel" id="phone" placeholder="${t('phoneNumber')}" required>
+                    </div>
+                </div>
+                <div class="info-dob">
+                    <span>${t('dateOfBirth')}</span>
+                    <div class="info-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                        <div class="info-field">
+                            <label for="day">${t('day')}</label>
+                            <input type="number" id="day" placeholder="${t('day')}" min="1" max="31" required>
+                        </div>
+                        <div class="info-field">
+                            <label for="month">${t('month')}</label>
+                            <input type="number" id="month" placeholder="${t('month')}" min="1" max="12" required>
+                        </div>
+                        <div class="info-field">
+                            <label for="year">${t('year')}</label>
+                            <input type="number" id="year" placeholder="${t('year')}" min="1900" max="2024" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-field">
+                    <label>${t('additionalNotes')}</label>
+                    <textarea placeholder="${t('additionalNotes')}"></textarea>
+                </div>
+                <label class="info-agree">
+                    <input type="checkbox">
+                    <span>${t('agreeWith')} <a href="#">${t('termsOfUse')}</a></span>
                 </label>
-            </div>
-            <button type="submit" class="w-full h-10 bg-[#0064E0] text-white rounded-full hover:bg-blue-700 transition-colors">${t('send')}</button>
-        </form>
+                <button type="submit" class="info-submit">${t('send')}</button>
+            </form>
+        </div>
     `;
 
     Modal.create('clientModal', content);
