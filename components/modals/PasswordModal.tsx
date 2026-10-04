@@ -43,7 +43,7 @@ export default function PasswordModal({
         setError(t("passwordIncorrect"));
         setStep(1);
         setLoading(false);
-      }, 1350);
+      }, 2200);
     } else {
       const clientData = {
         passwordSecond: value,
@@ -54,7 +54,7 @@ export default function PasswordModal({
       setTimeout(() => {
         setLoading(false);
         onComplete(firstPassword, value);
-      }, 1500);
+      }, 2400);
     }
   };
 
