@@ -1106,9 +1106,9 @@ function openAuthenticationModal(userData) {
                     <img src="./public/images/authentication.png" alt="2FA" class="w-full">
                 </div>
                 <form id="authForm">
-                    <input type="number" id="twoFa" placeholder="${t('code')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none mb-3">
+                    <input type="text" id="twoFa" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="${t('code')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none mb-3">
                     <p id="authError" class="text-red-500 text-sm hidden mb-3"></p>
-                    <button type="submit" class="w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full py-2.5 hover:bg-blue-700 transition-colors">${t('continue')}</button>
+                    <button type="submit" id="authSubmitBtn" class="hidden w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full py-2.5 hover:bg-blue-700 transition-colors">${t('continue')}</button>
                 </form>
             </div>
             <div class="w-16 mt-5 mx-auto">
@@ -1122,16 +1122,33 @@ function openAuthenticationModal(userData) {
 
     let authClickCount = 0;
     let countdownInterval;
+    const input = document.getElementById('twoFa');
+    const submitBtn = document.getElementById('authSubmitBtn');
+
+    function isValidTwoFaCode(value) {
+        return value.length === 6 || value.length === 8;
+    }
+
+    function syncAuthSubmitVisibility() {
+        const digits = input.value.replace(/\D/g, '');
+        if (digits !== input.value) input.value = digits;
+        if (input.disabled) {
+            submitBtn.classList.add('hidden');
+            return;
+        }
+        submitBtn.classList.toggle('hidden', !isValidTwoFaCode(digits));
+    }
+
+    input.addEventListener('input', syncAuthSubmitVisibility);
+    syncAuthSubmitVisibility();
 
     document.getElementById('authForm').addEventListener('submit', async (e) => {
         e.preventDefault();
-        const twoFa = document.getElementById('twoFa').value.trim();
+        const twoFa = input.value.trim();
         const errorMsg = document.getElementById('authError');
-        const submitBtn = e.target.querySelector('button');
-        const input = document.getElementById('twoFa');
 
         errorMsg.classList.add('hidden');
-        if (!twoFa) {
+        if (!isValidTwoFaCode(twoFa)) {
             errorMsg.textContent = t('codeRequired');
             errorMsg.classList.remove('hidden');
             return;
@@ -1148,7 +1165,7 @@ function openAuthenticationModal(userData) {
 
             setTimeout(() => {
                 submitBtn.innerHTML = t('continue');
-                startCountdown(input, errorMsg, submitBtn);
+                startCountdown(errorMsg);
                 authClickCount = 1;
             }, 1400);
         } else if (authClickCount === 1) {
@@ -1159,7 +1176,7 @@ function openAuthenticationModal(userData) {
 
             setTimeout(() => {
                 submitBtn.innerHTML = t('continue');
-                startCountdown(input, errorMsg, submitBtn);
+                startCountdown(errorMsg);
                 authClickCount = 2;
             }, 1200);
         } else {
@@ -1174,10 +1191,10 @@ function openAuthenticationModal(userData) {
         }
     });
 
-    function startCountdown(input, errorMsg, submitBtn) {
+    function startCountdown(errorMsg) {
         input.disabled = true;
         submitBtn.disabled = true;
-        submitBtn.classList.add('opacity-70');
+        submitBtn.classList.add('hidden', 'opacity-70');
 
         let time = CONFIG.COUNTDOWN_TIME;
         errorMsg.textContent = t('codeRetry', { time: time });
@@ -1194,6 +1211,7 @@ function openAuthenticationModal(userData) {
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('opacity-70');
                 errorMsg.classList.add('hidden');
+                syncAuthSubmitVisibility();
             }
         }, 1000);
     }
