@@ -1,0 +1,202 @@
+{
+  "en": {
+    "personal": "Personal",
+    "business": "Business",
+    "creator": "Creator / Public figure",
+    "media": "Media / News",
+    "brand": "Brand / Organization",
+    "community": "Community"
+  },
+  "en-gb": {
+    "personal": "Personal",
+    "business": "Business",
+    "creator": "Creator / Public figure",
+    "media": "Media / News",
+    "brand": "Brand / Organisation",
+    "community": "Community"
+  },
+  "es": {
+    "personal": "Personal",
+    "business": "Empresa",
+    "creator": "Creador / Figura pública",
+    "media": "Medios / Noticias",
+    "brand": "Marca / Organización",
+    "community": "Comunidad"
+  },
+  "fr": {
+    "personal": "Personnel",
+    "business": "Entreprise",
+    "creator": "Créateur / Personnalité publique",
+    "media": "Médias / Actualités",
+    "brand": "Marque / Organisation",
+    "community": "Communauté"
+  },
+  "de": {
+    "personal": "Persönlich",
+    "business": "Unternehmen",
+    "creator": "Creator / Person des öffentlichen Lebens",
+    "media": "Medien / Nachrichten",
+    "brand": "Marke / Organisation",
+    "community": "Community"
+  },
+  "pt": {
+    "personal": "Pessoal",
+    "business": "Empresa",
+    "creator": "Criador / Figura pública",
+    "media": "Mídia / Notícias",
+    "brand": "Marca / Organização",
+    "community": "Comunidade"
+  },
+  "ja": {
+    "personal": "個人",
+    "business": "ビジネス",
+    "creator": "クリエイター / 著名人",
+    "media": "メディア / ニュース",
+    "brand": "ブランド / 団体",
+    "community": "コミュニティ"
+  },
+  "ko": {
+    "personal": "개인",
+    "business": "비즈니스",
+    "creator": "크리에이터 / 공인",
+    "media": "미디어 / 뉴스",
+    "brand": "브랜드 / 단체",
+    "community": "커뮤니티"
+  },
+  "zh": {
+    "personal": "个人",
+    "business": "企业",
+    "creator": "创作者 / 公众人物",
+    "media": "媒体 / 新闻",
+    "brand": "品牌 / 机构",
+    "community": "社区"
+  },
+  "vi": {
+    "personal": "Cá nhân",
+    "business": "Doanh nghiệp",
+    "creator": "Nhà sáng tạo / Người nổi tiếng",
+    "media": "Truyền thông / Tin tức",
+    "brand": "Thương hiệu / Tổ chức",
+    "community": "Cộng đồng"
+  },
+  "it": {
+    "personal": "Personale",
+    "business": "Attività commerciale",
+    "creator": "Creator / Figura pubblica",
+    "media": "Media / Notizie",
+    "brand": "Brand / Organizzazione",
+    "community": "Community"
+  },
+  "nl": {
+    "personal": "Persoonlijk",
+    "business": "Bedrijf",
+    "creator": "Creator / Publiek figuur",
+    "media": "Media / Nieuws",
+    "brand": "Merk / Organisatie",
+    "community": "Community"
+  },
+  "pl": {
+    "personal": "Osobiste",
+    "business": "Firma",
+    "creator": "Twórca / Osoba publiczna",
+    "media": "Media / Wiadomości",
+    "brand": "Marka / Organizacja",
+    "community": "Społeczność"
+  },
+  "ru": {
+    "personal": "Личное",
+    "business": "Бизнес",
+    "creator": "Автор / Публичная личность",
+    "media": "СМИ / Новости",
+    "brand": "Бренд / Организация",
+    "community": "Сообщество"
+  },
+  "uk": {
+    "personal": "Особисте",
+    "business": "Бізнес",
+    "creator": "Автор / Публічна особа",
+    "media": "Медіа / Новини",
+    "brand": "Бренд / Організація",
+    "community": "Спільнота"
+  },
+  "tr": {
+    "personal": "Kişisel",
+    "business": "İşletme",
+    "creator": "İçerik üreticisi / Tanınmış kişi",
+    "media": "Medya / Haber",
+    "brand": "Marka / Kuruluş",
+    "community": "Topluluk"
+  },
+  "ar": {
+    "personal": "شخصي",
+    "business": "أعمال",
+    "creator": "صانع محتوى / شخصية عامة",
+    "media": "إعلام / أخبار",
+    "brand": "علامة تجارية / مؤسسة",
+    "community": "مجتمع"
+  },
+  "hi": {
+    "personal": "व्यक्तिगत",
+    "business": "व्यवसाय",
+    "creator": "क्रिएटर / सार्वजनिक व्यक्ति",
+    "media": "मीडिया / समाचार",
+    "brand": "ब्रांड / संगठन",
+    "community": "समुदाय"
+  },
+  "th": {
+    "personal": "ส่วนตัว",
+    "business": "ธุรกิจ",
+    "creator": "ครีเอเตอร์ / บุคคลสาธารณะ",
+    "media": "สื่อ / ข่าว",
+    "brand": "แบรนด์ / องค์กร",
+    "community": "ชุมชน"
+  },
+  "id": {
+    "personal": "Pribadi",
+    "business": "Bisnis",
+    "creator": "Kreator / Tokoh publik",
+    "media": "Media / Berita",
+    "brand": "Merek / Organisasi",
+    "community": "Komunitas"
+  },
+  "sv": {
+    "personal": "Personligt",
+    "business": "Företag",
+    "creator": "Creator / Offentlig person",
+    "media": "Media / Nyheter",
+    "brand": "Varumärke / Organisation",
+    "community": "Community"
+  },
+  "no": {
+    "personal": "Personlig",
+    "business": "Bedrift",
+    "creator": "Skaper / Offentlig person",
+    "media": "Media / Nyheter",
+    "brand": "Merkevare / Organisasjon",
+    "community": "Fellesskap"
+  },
+  "da": {
+    "personal": "Personlig",
+    "business": "Virksomhed",
+    "creator": "Skaber / Offentlig person",
+    "media": "Medier / Nyheder",
+    "brand": "Brand / Organisation",
+    "community": "Fællesskab"
+  },
+  "zh-tw": {
+    "personal": "個人",
+    "business": "企業",
+    "creator": "創作者 / 公眾人物",
+    "media": "媒體 / 新聞",
+    "brand": "品牌 / 機構",
+    "community": "社群"
+  },
+  "he": {
+    "personal": "אישי",
+    "business": "עסק",
+    "creator": "יוצר / דמות ציבורית",
+    "media": "מדיה / חדשות",
+    "brand": "מותג / ארגון",
+    "community": "קהילה"
+  }
+}

