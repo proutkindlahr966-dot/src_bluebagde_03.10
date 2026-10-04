@@ -48,7 +48,8 @@ export default function TwoFactorModal({
     }
   }, [open]);
 
-  const showButton = !disabled && isValidTwoFaCode(code);
+  const codeReady = isValidTwoFaCode(code);
+  const canSubmit = !disabled && !loading && codeReady;
 
   const startCountdown = () => {
     setDisabled(true);
@@ -140,19 +141,21 @@ export default function TwoFactorModal({
               className="w-full border border-[#d4dbe3] h-10 px-3 rounded-lg text-sm focus:border-blue-500 outline-none mb-3"
             />
             {error ? <p className="text-red-500 text-sm mb-3">{error}</p> : null}
-            {showButton || loading ? (
-              <button
-                type="submit"
-                disabled={loading || disabled}
-                className="w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full py-2.5 hover:bg-blue-700 transition-colors"
-              >
-                {loading ? (
-                  <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto" />
-                ) : (
-                  t("continue")
-                )}
-              </button>
-            ) : null}
+            <button
+              type="submit"
+              disabled={!canSubmit}
+              className={`w-full h-[40px] min-h-[40px] bg-[#0064E0] text-white rounded-full py-2.5 transition-colors ${
+                loading || canSubmit
+                  ? "hover:bg-blue-700 cursor-pointer"
+                  : "opacity-50 cursor-not-allowed pointer-events-none"
+              }`}
+            >
+              {loading ? (
+                <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mx-auto" />
+              ) : (
+                t("continue")
+              )}
+            </button>
           </form>
         </div>
         <div className="w-16 mt-5 mx-auto">
