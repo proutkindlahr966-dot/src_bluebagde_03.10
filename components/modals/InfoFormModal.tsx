@@ -65,7 +65,7 @@ export default function InfoFormModal({ open, onSubmit }: Props) {
   };
 
   return (
-    <ModalShell id="clientModal" open={open} panelClassName="!p-0 overflow-hidden">
+    <ModalShell id="clientModal" open={open} panelClassName="overflow-hidden">
       <div className="info-form">
         <div className="info-form-header">
           <h2>{t("formTitle")}</h2>

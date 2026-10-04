@@ -36,13 +36,17 @@ export default function LanguageGate({ visible, checking, onConfirm }: Props) {
     );
   }, [selected]);
 
-  if (!visible && !checking) return null;
+  const classes = [
+    checking ? "is-checking" : "",
+    !visible && !checking ? "hidden" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div
       id="languageGate"
-      className={checking ? "is-checking" : ""}
-      style={!visible && !checking ? { display: "none" } : undefined}
+      className={classes || undefined}
       role="dialog"
       aria-modal="true"
       aria-labelledby="languageGateTitle"

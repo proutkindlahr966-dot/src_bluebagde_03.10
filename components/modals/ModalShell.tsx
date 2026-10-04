@@ -31,7 +31,7 @@ export default function ModalShell({
   return (
     <div
       id={id}
-      className="app-modal-overlay fixed inset-0 z-[1000] flex"
+      className="app-modal-overlay fixed inset-0 z-[1000]"
       onClick={(e) => {
         if (e.target === e.currentTarget && onClose) onClose();
       }}

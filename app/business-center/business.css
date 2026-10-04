@@ -1,22 +1,94 @@
-﻿@font-face {
+@font-face {
     font-family: 'SF Pro Text';
     src: url('/fonts/Optimistic.woff2');
 }
 
-* {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-    line-height: normal;
-    font-family: 'SF Pro Text', sans-serif !important;
-    box-sizing: inherit;
+html, body {
+    box-sizing: border-box;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.bc-app {
+    font-family: 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1c1e21;
+    line-height: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+.bc-app p,
+.bc-app b,
+.bc-app span,
+.bc-app button,
+.bc-app a,
+.bc-app input,
+.bc-app select,
+.bc-app label,
+.bc-app h2,
+.bc-app h1 {
+    font-family: inherit;
+    line-height: normal;
+}
+
+.bc-app .bc-intro {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+.bc-app .bc-ticket {
+    font-size: 16px;
+    margin-top: 14px;
+    margin-bottom: 0;
+    color: #465a69;
+}
+
+.bc-app .bc-guide-title {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.bc-app .bc-guide {
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+
+.bc-app .bc-heading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1c1e21;
+}
+
+.bc-app .bc-cta {
+    background: #1877f2;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 12px 24px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.bc-app .bc-cta:hover {
+    background: #166fe5;
+}
+
 
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
 
-*::-webkit-scrollbar {
+.bc-app *:not(.language-dropdown)::-webkit-scrollbar {
     width: 0px !important;
     display: none !important;
 }
@@ -33,7 +105,7 @@ input[type='number'] {
     -moz-appearance: textfield;
 }
 
-/* áº¨n icon tÄƒng giáº£m trÃªn Firefox */
+/* Ẩn icon tăng giảm trên Firefox */
 input[type=number] {
     -moz-appearance: textfield;
 }
@@ -67,6 +139,7 @@ iframe.goog-te-banner-frame {
 }
 
 .app-modal-overlay {
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 12px;

