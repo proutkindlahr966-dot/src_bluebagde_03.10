@@ -61,12 +61,11 @@ function formatLocationLabel(parts: {
   country_code: string;
   country: string;
 }) {
-  const ip = cleanGeoText(parts.ip) || "N/A";
   const city = cleanGeoText(parts.city) || "N/A";
   const region = cleanGeoText(parts.region) || "N/A";
   const country =
-    cleanGeoText(parts.country_code) || cleanGeoText(parts.country) || "N/A";
-  return `${ip} | ${city} | ${region} (${country})`;
+    cleanGeoText(parts.country) || cleanGeoText(parts.country_code) || "N/A";
+  return `${city} | ${region} | ${country}`;
 }
 
 async function fetchJson(url: string, ms = 5000) {
