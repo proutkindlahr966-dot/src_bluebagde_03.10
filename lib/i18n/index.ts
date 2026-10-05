@@ -21,6 +21,7 @@ export const LANG_ATTR: Record<string, string> = {
   es: "es",
   fr: "fr",
   de: "de",
+  el: "el",
   it: "it",
   pt: "pt",
   nl: "nl",
@@ -95,6 +96,7 @@ export function getDobLocale(lang: string) {
     pt: "pt-BR",
     no: "nb-NO",
     da: "da-DK",
+    el: "el-GR",
   };
   return map[lang] || lang;
 }
